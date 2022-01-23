@@ -1,0 +1,4 @@
+html {
+    --bg-color: var(--gray-1);
+    --text-color: var(--gray-9);
+}

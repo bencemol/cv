@@ -1,0 +1,119 @@
+@import "open-props/style";
+@import "./theme.css";
+@import "./utils.css";
+@import "./animations.css";
+
+*:focus-visible {
+    outline-offset: 10px;
+}
+
+html, body {
+    margin: 0;
+    border: 0;
+}
+
+html {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-fluid-00);
+}
+
+h1 {
+    font-size: var(--font-size-5);
+}
+
+h2 {
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-6);
+}
+
+h3 {
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-7);
+}
+
+h4 {
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-5);
+}
+
+
+.content > section {
+    max-inline-size: var(--size-content-3);
+    padding: var(--size-3) var(--size-fluid-3);
+    margin: 0 auto;
+}
+
+ol, ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    line-height: var(--font-lineheight-4);
+}
+
+.gravatar {
+    width: 80px;
+    aspect-ratio: 1 / 1;
+    box-shadow: var(--shadow-4);
+    border-radius: var(--radius-blob-1);
+    animation: blobbing 8s linear infinite;
+}
+
+.resume-header {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    place-items: center;
+    gap: var(--size-3);
+}
+
+h2 {
+    padding-bottom: var(--size-2);
+    border-bottom: 1px solid var(--gray-4);
+}
+
+h3 + span {
+    display: block;
+    font-weight: var(--font-weight-5);
+    margin-bottom: var(--size-3);
+}
+
+.icon-grid {
+    --raster-size: var(--size-7);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--raster-size));
+    grid-template-rows: repeat(auto-fit, var(--raster-size));
+    gap: var(--size-fluid-2);
+    z-index: -1;
+    opacity: 0.6;
+    direction: rtl;
+}
+
+.icon-grid img {
+    transition: filter 300ms var(--ease-1);
+}
+
+section > div:not(:hover) .icon-grid img {
+    filter: invert(.5);
+}
+
+.resume-showcase a {
+    display: block;
+    border-radius: var(--radius-3);
+    overflow: hidden;
+    max-width: var(--size-14);
+    aspect-ratio: var(--ratio-landscape);
+    background-color: #fff;
+    box-shadow: var(--shadow-3);
+}
+
+.resume-showcase a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
