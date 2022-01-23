@@ -14,12 +14,17 @@ html {
         --icon-opacity: 0.75;
         --gradient: var(--gradient-15)
     }
+
+    .filter-invert {
+        filter: invert(1);
+    }
 }
 
 @media print {
     html {
         --gradient: none;
     }
+
     .gradient-text {
         -webkit-background-clip: initial !important;
         -webkit-text-fill-color: initial !important;
