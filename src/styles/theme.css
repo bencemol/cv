@@ -1,4 +1,27 @@
 html {
     --bg-color: var(--gray-1);
     --text-color: var(--gray-9);
+    --border-color: var(--gray-4);
+    --icon-opacity: 0.6;
+    --gradient: var(--gradient-1);
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        --bg-color: var(--gray-9);
+        --text-color: var(--gray-1);
+        --border-color: var(--gray-7);
+        --icon-opacity: 0.75;
+        --gradient: var(--gradient-15)
+    }
+}
+
+@media print {
+    html {
+        --gradient: none;
+    }
+    .gradient-text {
+        -webkit-background-clip: initial !important;
+        -webkit-text-fill-color: initial !important;
+    }
 }
