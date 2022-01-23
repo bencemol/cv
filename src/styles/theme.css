@@ -1,4 +1,5 @@
 html {
+    color-scheme: light;
     --bg-color: var(--gray-1);
     --text-color: var(--gray-9);
     --border-color: var(--gray-4);
@@ -8,6 +9,7 @@ html {
 
 @media (prefers-color-scheme: dark) {
     html {
+        color-scheme: dark;
         --bg-color: var(--gray-9);
         --text-color: var(--gray-1);
         --border-color: var(--gray-7);
