@@ -1,131 +1,179 @@
 ---
-
+import "../styles/index.css";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Resume - Bence Molnár</title>
-		<link rel="icon" type="image/svg+xml" 
-			href="./favicon.svg" />
-		<link rel="stylesheet" type="text/css"
-  			href={Astro.resolve('../styles/index.css')} />
-	</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Resume - Bence Molnár</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <style is:global lang="scss">
+      @for $i from 1 through 20 {
+        .skill-group:has(li:nth-child(#{$i}):not(:hover))
+          .icon-grid
+          img:nth-child(#{$i}) {
+          filter: invert(0.5);
+          opacity: var(--icon-opacity);
+        }
+      }
+    </style>
+  </head>
 
-	<body>
-		<main class="content">
-			<section class="resume-header">
-				<img 
-					src="https://www.gravatar.com/avatar/d069f08d4ffdf24451b7a7b839e80a4f"
-					alt="gravatar" 
-					class="gravatar border-blob-1"
-				>
-				<div class="resume-header-text">
-					<h1 class="gradient-text">Bence Molnár</h1>
-					<p>
-						Full stack dev with an interest in web design, micro-interactions and UX. Free time keyboard builder and cyclist.
-					</p>
-				</div>
-			</section>
-			<section class="resume-skills">
-				<h2 class="uppercase">Skills</h2>
-				<div class="skill-group">
-					<h3>Languages & Frameworks</h3>
-					<div class="columns-2">
-						<ul>
-							<li>HTML</li>
-							<li>CSS</li>
-							<li>JavaScript</li>
-							<li>TypeScript</li>
-							<li>Java</li>
-							<li>SpringBoot</li>
-							<li>Angular</li>
-							<li>VueJS</li>
-							<li>React</li>
-							<li>Svelte</li>
-						</ul>
-						<div class="icon-grid">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-plain.svg" class="filter-invert"/>
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" />
-						</div>
-					</div>
-				</div>
-				<div class="skill-group">
-					<h3>Apps & Tooling</h3>
-					<div class="columns-2">
-						<ul>
-							<li>PostgreSQL</li>
-							<li>Oracle DB</li>
-							<li>Nginx</li>
-							<li>Docker</li>
-							<li>Figma</li>
-						</ul>
-						<div class="icon-grid">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" />
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg" />
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="resume-studies">
-				<h2 class="uppercase">Studies</h2>
-				<div class="school">
-					<h3 class="m-b-0">
-						Budapest University of Technology and Economics <br> Faculty of Electrical Engineering and Informatics
-					</h3>
-					<span>2013 - 2017</span>
-					<ul>
-						<li>Electrical Engineering Faculty</li>
-						<li>Java fatclients with JavaFx</li>
-						<li>Inverse kinematics in C</li>
-					</ul>
-				</div>
-			</section>
-			<section class="resume-work">
-				<h2 class="uppercase">Work</h2>
-				<div class="workplace">
-					<h3 class="m-b-0">Talk-A-Bot</h3>
-					<span>2020 - </span>
-					<p>Management UI for Chatbots and Natural Language Processing</p>
-				</div>
-				<div class="workplace">
-					<h3 class="m-b-0">Adnovum</h3>
-					<span>2020</span>
-					<p>Identity and Authentication Provider</p>
-				</div>
-				<div class="workplace">
-					<h3 class="m-b-0">Deutsche Telekom IT Solutions</h3>
-					<span>2016 - 2020</span>
-					<p>Billing applications</p>
-				</div>
-			</section>
-			<section class="resume-showcase">
-				<h2 class="uppercase">Snippets</h2>
-				<div class="snippet">
-					<h3>Chatbot splash screen</h3>
-					<a href="https://codesandbox.io/s/chatbot-splash-srfqg">
-						<img src={Astro.resolve('../assets/chatbot-splash.gif')} alt="Chatbot splash screen">
-					</a>
-				</div>
-				<div class="snippet">
-					<h3>Card deletion</h3>
-					<a href="#">
-						<img src={Astro.resolve('../assets/context-menu-confirmation.gif')} alt="Chatbot splash screen">
-					</a>
-				</div>
-			</section>
-		</main>
-	</body>
+  <body>
+    <main class="content">
+      <section class="resume-header">
+        <div class="resume-header-text">
+          <h1 class="gradient-text">Bence Molnár</h1>
+          <p>
+            Full stack dev with an interest in web design, micro-interactions
+            and UX. Enterprise apps <i>can</i> look nice!
+          </p>
+        </div>
+        <img
+          src="https://www.gravatar.com/avatar/d069f08d4ffdf24451b7a7b839e80a4f"
+          alt="gravatar"
+          class="gravatar border-blob-1"
+        />
+      </section>
+      <section class="resume-skills">
+        <h2 class="uppercase">Skills</h2>
+        <div class="skill-group">
+          <h3>Languages & Frameworks</h3>
+          <div class="columns-2">
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+              <li>Java</li>
+              <li>SpringBoot</li>
+              <li>Angular</li>
+              <li>VueJS</li>
+              <li>React</li>
+              <li>Svelte</li>
+            </ul>
+            <div class="icon-grid">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-plain.svg"
+                class="filter-invert"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Apps & Tooling</h3>
+          <div class="columns-2">
+            <ul>
+              <li>PostgreSQL</li>
+              <li>Oracle DB</li>
+              <li>Nginx</li>
+              <li>Docker</li>
+              <li>Figma</li>
+            </ul>
+            <div class="icon-grid">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="resume-studies">
+        <h2 class="uppercase">Studies</h2>
+        <div class="school">
+          <h3 class="m-b-0">
+            Budapest University of Technology and Economics <br /> Faculty of Electrical
+            Engineering and Informatics
+          </h3>
+          <span>2013 - 2017</span>
+          <ul>
+            <li>Electrical Engineering Faculty</li>
+            <li>Java fatclients with JavaFx</li>
+            <li>Inverse kinematics in C</li>
+          </ul>
+        </div>
+      </section>
+      <section class="resume-work">
+        <h2 class="uppercase">Work</h2>
+        <div class="workplace">
+          <h3 class="m-b-0">Snapsoft</h3>
+          <span>2022 -</span>
+          <p>Enterprise SPAs</p>
+        </div>
+        <div class="workplace">
+          <h3 class="m-b-0">Talk-A-Bot</h3>
+          <span>2020 - 2022</span>
+          <p>Management UI for Chatbots and Natural Language Processing</p>
+        </div>
+        <div class="workplace">
+          <h3 class="m-b-0">Adnovum</h3>
+          <span>2020</span>
+          <p>Identity and Authentication Provider</p>
+        </div>
+        <div class="workplace">
+          <h3 class="m-b-0">Deutsche Telekom IT Solutions</h3>
+          <span>2016 - 2020</span>
+          <p>Billing applications</p>
+        </div>
+      </section>
+      <section class="resume-showcase">
+        <h2 class="uppercase">Snippets</h2>
+        <div class="snippet">
+          <h3>Chatbot splash screen</h3>
+          <a href="https://codesandbox.io/s/chatbot-splash-srfqg">
+            <img src="/assets/chatbot-splash.gif" alt="Chatbot splash screen" />
+          </a>
+        </div>
+        <div class="snippet">
+          <h3>Card deletion</h3>
+          <a href="#">
+            <img
+              src="/assets/context-menu-confirmation.gif"
+              alt="Chatbot splash screen"
+            />
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

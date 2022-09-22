@@ -9,9 +9,10 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^0.22.17"
+    "astro": "^1.2.8",
+    "sass": "^1.55.0"
   },
   "dependencies": {
-    "open-props": "^1.1.6"
+    "open-props": "^1.4.16"
   }
 }
