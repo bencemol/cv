@@ -1,5 +1,7 @@
 ---
 import "../styles/index.css";
+import chatbotSplash from "../assets/chatbot-splash.gif";
+import contextMenu from "../assets/context-menu-confirmation.gif";
 ---
 
 <html lang="en">
@@ -118,21 +120,7 @@ import "../styles/index.css";
           </div>
         </div>
       </section>
-      <section class="resume-studies">
-        <h2 class="uppercase">Studies</h2>
-        <div class="school">
-          <h3 class="m-b-0">
-            Budapest University of Technology and Economics <br /> Faculty of Electrical
-            Engineering and Informatics
-          </h3>
-          <span>2013 - 2017</span>
-          <ul>
-            <li>Electrical Engineering Faculty</li>
-            <li>Java fatclients with JavaFx</li>
-            <li>Inverse kinematics in C</li>
-          </ul>
-        </div>
-      </section>
+
       <section class="resume-work">
         <h2 class="uppercase">Work</h2>
         <div class="workplace">
@@ -156,21 +144,33 @@ import "../styles/index.css";
           <p>Billing applications</p>
         </div>
       </section>
+      <section class="resume-studies">
+        <h2 class="uppercase">Studies</h2>
+        <div class="school">
+          <h3 class="m-b-0">
+            Budapest University of Technology and Economics <br /> Faculty of Electrical
+            Engineering and Informatics
+          </h3>
+          <span>2013 - 2017</span>
+          <ul>
+            <li>Electrical Engineering Faculty</li>
+            <li>Java fatclients with JavaFx</li>
+            <li>Inverse kinematics in C</li>
+          </ul>
+        </div>
+      </section>
       <section class="resume-showcase">
         <h2 class="uppercase">Snippets</h2>
         <div class="snippet">
           <h3>Chatbot splash screen</h3>
           <a href="https://codesandbox.io/s/chatbot-splash-srfqg">
-            <img src="/assets/chatbot-splash.gif" alt="Chatbot splash screen" />
+            <img src={chatbotSplash} alt="Chatbot splash screen" />
           </a>
         </div>
         <div class="snippet">
           <h3>Card deletion</h3>
           <a href="#">
-            <img
-              src="/assets/context-menu-confirmation.gif"
-              alt="Chatbot splash screen"
-            />
+            <img src={contextMenu} alt="Chatbot splash screen" />
           </a>
         </div>
       </section>
