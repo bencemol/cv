@@ -93,9 +93,13 @@ h3 + span {
   justify-content: end;
 }
 
-.icon-grid:hover img {
-  filter: none !important;
-  opacity: 1 !important;
+#iconGrid.icon-grid:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+#iconGrid.icon-grid:hover img.filter-invert {
+  filter: invert(1);
 }
 
 .icon-grid img {
