@@ -98,10 +98,6 @@ h3 + span {
   opacity: 1;
 }
 
-#iconGrid.icon-grid:hover img.filter-invert {
-  filter: invert(1);
-}
-
 .icon-grid img {
   transition: filter 300ms var(--ease-1), opacity 300ms var(--ease-1);
 }
