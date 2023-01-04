@@ -45,7 +45,7 @@ h4 {
   padding-bottom: var(--size-7);
   margin-bottom: var(--footer-height);
   background-color: var(--bg-color);
-  box-shadow: var(--shadow-3);
+  box-shadow: var(--shadow-2);
   z-index: 1;
 }
 
@@ -72,7 +72,7 @@ li {
 .gravatar {
   width: 80px;
   aspect-ratio: 1 / 1;
-  box-shadow: var(--shadow-3);
+  box-shadow: var(--shadow-2);
   border-radius: var(--radius-blob-1);
   animation: blobbing 8s linear infinite;
 }
