@@ -1,19 +1,14 @@
 .uppercase {
-    text-transform: uppercase;
-    letter-spacing: var(--font-letterspacing-4);
-}
-
-.columns-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  text-transform: uppercase;
+  letter-spacing: var(--font-letterspacing-4);
 }
 
 .m-b-0 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .gradient-text {
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
