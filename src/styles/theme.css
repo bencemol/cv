@@ -25,8 +25,16 @@ html {
 }
 
 @media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+
   html {
     --gradient: none;
+    --shadow-1: none;
+    --shadow-2: none;
+    --shadow-3: none;
   }
 
   .gradient-text {
