@@ -69,8 +69,13 @@ li {
 .resume-header {
   display: grid;
   grid-template-columns: 1fr 80px;
-  place-items: center;
+  justify-items: start;
+  align-items: center;
   gap: var(--size-3);
+}
+
+.resume-header-text {
+  max-inline-size: var(--size-content-2);
 }
 
 h2 {
@@ -84,6 +89,25 @@ h3 + span {
   margin-bottom: var(--size-3);
 }
 
+.paragraph {
+  margin-top: var(--size-7);
+  padding: var(--size-5);
+}
+
+.card {
+  background-color: var(--bg-color-dark);
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-2);
+}
+
+.paragraph > h3 {
+  margin-top: 0;
+}
+
+.paragraph > p {
+  margin-bottom: 0;
+}
+
 .icon-grid {
   --raster-size: var(--size-7);
   display: grid;
@@ -93,13 +117,12 @@ h3 + span {
   justify-content: end;
 }
 
-#iconGrid.icon-grid:hover img {
-  filter: none;
-  opacity: 1;
+.skill-group:not(:has(li:hover)) #iconGrid.icon-grid img {
+  transform: none;
 }
 
 .icon-grid img {
-  transition: filter 300ms var(--ease-1), opacity 300ms var(--ease-1);
+  transition: transform 300ms var(--ease-elastic-4);
 }
 
 .resume-showcase a {

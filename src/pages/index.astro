@@ -16,8 +16,13 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
           .icon-grid
           div:nth-child(#{$i})
           img {
-          filter: invert(0.5);
-          opacity: var(--icon-opacity);
+          transform: scale(0.8);
+        }
+        .skill-group:has(li:nth-child(#{$i}):hover)
+          .icon-grid
+          div:nth-child(#{$i})
+          img {
+          transform: scale(1.2) translateY(-10%);
         }
       }
     </style>
@@ -29,8 +34,8 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
         <div class="resume-header-text">
           <h1 class="gradient-text">Bence Molnár</h1>
           <p>
-            Full stack dev with an interest in web design, micro-interactions
-            and UX. Enterprise apps <i>can</i> look nice!
+            Full stack dev with an interest in web design, UX and
+            microinteractions. Enterprise apps <i>can</i> look & feel nice!
           </p>
         </div>
         <img
@@ -41,22 +46,26 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
       </section>
       <section class="resume-skills">
         <h2 class="uppercase">Skills</h2>
-        <div class="skill-group">
-          <h3>Languages & Frameworks</h3>
+        <div class="paragraph card skill-group">
+          <h3>Frontend</h3>
           <div class="columns-2">
             <ul>
+              <li>Figma</li>
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
               <li>TypeScript</li>
-              <li>Java</li>
-              <li>SpringBoot</li>
               <li>Angular</li>
               <li>VueJS</li>
               <li>React</li>
               <li>Svelte</li>
             </ul>
             <div id="iconGrid" class="icon-grid">
+              <div>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                />
+              </div>
               <div>
                 <img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"
@@ -77,16 +86,7 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg"
                 />
               </div>
-              <div>
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain.svg"
-                />
-              </div>
-              <div>
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
-                />
-              </div>
+
               <div>
                 <img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"
@@ -110,17 +110,41 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
             </div>
           </div>
         </div>
-        <div class="skill-group">
-          <h3>Apps & Tooling</h3>
+        <div class="paragraph card skill-group">
+          <h3>Backend</h3>
           <div class="columns-2">
             <ul>
+              <li>Node.js</li>
+              <li>NestJS</li>
+              <li>Java</li>
+              <li>SpringBoot</li>
               <li>PostgreSQL</li>
               <li>Oracle DB</li>
               <li>Nginx</li>
               <li>Docker</li>
-              <li>Figma</li>
+              <li>Terraform</li>
             </ul>
             <div id="iconGrid" class="icon-grid">
+              <div>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                />
+              </div>
+              <div>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg"
+                />
+              </div>
+              <div>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain.svg"
+                />
+              </div>
+              <div>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                />
+              </div>
               <div>
                 <img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg"
@@ -143,7 +167,7 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
               </div>
               <div>
                 <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
                 />
               </div>
             </div>
@@ -153,22 +177,22 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
 
       <section class="resume-work">
         <h2 class="uppercase">Work</h2>
-        <div class="workplace">
+        <div class="paragraph card">
           <h3 class="m-b-0">Snapsoft</h3>
           <span>2022 -</span>
           <p>Enterprise SPAs</p>
         </div>
-        <div class="workplace">
+        <div class="paragraph card">
           <h3 class="m-b-0">Talk-A-Bot</h3>
           <span>2020 - 2022</span>
           <p>Management UI for Chatbots and Natural Language Processing</p>
         </div>
-        <div class="workplace">
+        <div class="paragraph card">
           <h3 class="m-b-0">Adnovum</h3>
           <span>2020</span>
           <p>Identity and Authentication Provider</p>
         </div>
-        <div class="workplace">
+        <div class="paragraph card">
           <h3 class="m-b-0">Deutsche Telekom IT Solutions</h3>
           <span>2016 - 2020</span>
           <p>Billing applications</p>
@@ -176,7 +200,7 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
       </section>
       <section class="resume-studies">
         <h2 class="uppercase">Studies</h2>
-        <div class="school">
+        <div class="paragraph card">
           <h3 class="m-b-0">
             Budapest University of Technology and Economics <br /> Faculty of Electrical
             Engineering and Informatics
@@ -191,15 +215,17 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
       </section>
       <section class="resume-showcase">
         <h2 class="uppercase">Snippets</h2>
-        <div class="snippet">
+        <div>
           <h3>Chatbot splash screen</h3>
           <a href="https://codesandbox.io/s/chatbot-splash-srfqg">
             <img src={chatbotSplash} alt="Chatbot splash screen" />
           </a>
         </div>
-        <div class="snippet">
+        <div>
           <h3>Card deletion</h3>
-          <a href="https://codesandbox.io/s/react-card-deletion-framer-motion-u26g34">
+          <a
+            href="https://codesandbox.io/s/react-card-deletion-framer-motion-u26g34"
+          >
             <img src={contextMenu} alt="Chatbot splash screen" />
           </a>
         </div>
