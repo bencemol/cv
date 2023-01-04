@@ -46,7 +46,8 @@ h4 {
   z-index: 1;
 }
 
-.content > * {
+.content > *,
+section {
   max-inline-size: var(--size-content-3);
   padding: var(--size-3) var(--size-fluid-3);
   margin: 0 auto;
@@ -106,8 +107,6 @@ h3 + span {
   border-width: var(--border-size-1);
   border-color: var(--border-color);
   border-style: solid;
-  /* background-color: var(--bg-color-dark); */
-  /* box-shadow: var(--shadow-2); */
 }
 
 .paragraph > h3 {
@@ -170,8 +169,9 @@ h3 + span {
 footer {
   position: sticky;
   bottom: 0;
-  background-color: var(--bg-color-dark);
-  padding: var(--size-10) 0;
+  background: var(--gradient);
+  padding: var(--size-3);
+  min-height: var(--size-13);
   z-index: 0;
 }
 
