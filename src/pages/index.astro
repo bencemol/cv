@@ -1,13 +1,14 @@
 ---
 import "../styles/index.css";
-import chatbotSplash from "../assets/chatbot-splash.gif";
-import contextMenu from "../assets/context-menu-confirmation.gif";
+import chatbotSplash from "../assets/chatbot-splash.webm";
+import contextMenu from "../assets/context-menu-confirmation.webm";
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Molnár Bence Resume" />
     <title>Resume - Bence Molnár</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <style is:global lang="scss">
@@ -63,47 +64,55 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
             <div id="iconGrid" class="icon-grid">
               <div>
                 <img
+                  alt="Figma icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="Html5 icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="Css3 icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="Javascript icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="Typescript icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg"
                 />
               </div>
-
               <div>
                 <img
+                  alt="Angular icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="VueJs icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="React icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
                 />
               </div>
               <div class="filter-invert">
                 <img
+                  alt="Svelte icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-plain.svg"
                 />
               </div>
@@ -127,46 +136,55 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
             <div id="iconGrid" class="icon-grid">
               <div>
                 <img
+                  alt="Node.js icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="NestJs icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="Java icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="Spring icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="Postgresql icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="Oracle icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="Nginx icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="Docker icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
                 />
               </div>
               <div>
                 <img
+                  alt="Terraform icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
                 />
               </div>
@@ -222,7 +240,9 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
           <div>
             <h3>Chatbot splash screen</h3>
             <a href="https://codesandbox.io/s/chatbot-splash-srfqg">
-              <img src={chatbotSplash} alt="Chatbot splash screen" />
+              <video autoplay muted loop>
+                <source src={chatbotSplash} />
+              </video>
             </a>
           </div>
           <div>
@@ -230,7 +250,9 @@ import contextMenu from "../assets/context-menu-confirmation.gif";
             <a
               href="https://codesandbox.io/s/react-card-deletion-framer-motion-u26g34"
             >
-              <img src={contextMenu} alt="Chatbot splash screen" />
+              <video autoplay muted loop>
+                <source src={contextMenu} />
+              </video>
             </a>
           </div>
         </div>
