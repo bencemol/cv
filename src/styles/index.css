@@ -95,9 +95,12 @@ h3 + span {
 }
 
 .card {
-  background-color: var(--bg-color-dark);
   border-radius: var(--radius-3);
-  box-shadow: var(--shadow-2);
+  border-width: var(--border-size-1);
+  border-color: var(--border-color);
+  border-style: solid;
+  /* background-color: var(--bg-color-dark); */
+  /* box-shadow: var(--shadow-2); */
 }
 
 .paragraph > h3 {
