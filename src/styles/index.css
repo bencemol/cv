@@ -45,7 +45,7 @@ h4 {
   padding-bottom: var(--size-7);
   margin-bottom: var(--footer-height);
   background-color: var(--bg-color);
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-3);
   z-index: 1;
 }
 
