@@ -14,7 +14,6 @@ body {
 }
 
 html {
-  background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-sans);
   font-size: var(--font-size-fluid-00);
@@ -39,7 +38,15 @@ h4 {
   font-weight: var(--font-weight-5);
 }
 
-.content > section {
+.content {
+  position: relative;
+  padding-bottom: var(--size-7);
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow-2);
+  z-index: 1;
+}
+
+.content > * {
   max-inline-size: var(--size-content-3);
   padding: var(--size-3) var(--size-fluid-3);
   margin: 0 auto;
@@ -66,7 +73,7 @@ li {
   animation: blobbing 8s linear infinite;
 }
 
-.resume-header {
+header {
   display: grid;
   grid-template-columns: 1fr 80px;
   justify-items: start;
@@ -144,7 +151,8 @@ h3 + span {
   aspect-ratio: var(--ratio-landscape);
   background-color: #fff;
   box-shadow: var(--shadow-2);
-  transition: transform 300ms var(--ease-elastic-4);
+  transition: transform 300ms var(--ease-elastic-4),
+    box-shadow 300ms var(--ease-elastic-4);
 }
 
 .resume-showcase a img {
@@ -156,4 +164,17 @@ h3 + span {
 .resume-showcase a:hover,
 .resume-showcase a:focus {
   transform: scale(1.02) translateY(-2%);
+  box-shadow: var(--shadow-3);
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+  background-color: var(--bg-color-dark);
+  padding: var(--size-10) 0;
+  z-index: 0;
+}
+
+footer p {
+  text-align: center;
 }
