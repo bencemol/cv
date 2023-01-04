@@ -128,11 +128,19 @@ h3 + span {
   transition: transform 300ms var(--ease-elastic-4);
 }
 
+.showcase-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: var(--size-7);
+  row-gap: var(--size-3);
+}
+
 .resume-showcase a {
   display: block;
   border-radius: var(--radius-3);
   overflow: hidden;
-  max-width: var(--size-14);
+  max-width: var(--size-13);
   aspect-ratio: var(--ratio-landscape);
   background-color: #fff;
   box-shadow: var(--shadow-2);
