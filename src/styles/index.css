@@ -14,6 +14,9 @@ body {
 }
 
 html {
+  --footer-height: var(--size-13);
+
+  background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-sans);
   font-size: var(--font-size-fluid-00);
@@ -41,8 +44,8 @@ h4 {
 .content {
   position: relative;
   padding-bottom: var(--size-7);
+  margin-bottom: var(--footer-height);
   background-color: var(--bg-color);
-  box-shadow: var(--shadow-2);
   z-index: 1;
 }
 
@@ -167,11 +170,14 @@ h3 + span {
 }
 
 footer {
-  position: sticky;
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--footer-height);
+  position: fixed;
   bottom: 0;
   background: var(--gradient);
   padding: var(--size-3);
-  min-height: var(--size-13);
+  box-shadow: var(--inner-shadow-4);
   z-index: 0;
 }
 
