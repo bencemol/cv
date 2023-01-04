@@ -135,10 +135,10 @@ h3 + span {
 }
 
 .showcase-content {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--size-13), 1fr));
   justify-content: space-between;
-  column-gap: var(--size-7);
+  column-gap: var(--size-8);
   row-gap: var(--size-3);
 }
 
@@ -146,7 +146,7 @@ h3 + span {
   display: block;
   border-radius: var(--radius-3);
   overflow: hidden;
-  max-width: var(--size-13);
+  width: 100%;
   aspect-ratio: var(--ratio-landscape);
   background-color: #fff;
   box-shadow: var(--shadow-2);
