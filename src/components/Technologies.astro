@@ -7,7 +7,6 @@ interface Props {
 export interface Technology {
   name: string;
   iconUrl: string;
-  className?: string;
 }
 
 const { title, technologies } = Astro.props;
@@ -56,12 +55,7 @@ const { title, technologies } = Astro.props;
     <div id="iconGrid" class="icon-grid">
       {
         technologies.map((technology) => (
-          <img
-            class={technology.className}
-            id={`${technology.name}Icon`}
-            alt={`${technology.name} icon`}
-            src={technology.iconUrl}
-          />
+          <img alt={`${technology.name} icon`} src={technology.iconUrl} />
         ))
       }
     </div>
