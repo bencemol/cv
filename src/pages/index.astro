@@ -1,8 +1,29 @@
 ---
+import BackendTechnologies from "../components/BackendTechnologies.astro";
+import Footer from "../components/Footer.astro";
+import FrontendTechnologies from "../components/FrontendTechnologies.astro";
+import Header from "../components/Header.astro";
+import Showcase from "../components/Showcase.astro";
+import StudiesTimeline from "../components/StudiesTimeline.astro";
+import WorkTimeline from "../components/WorkTimeline.astro";
 import "../styles/index.css";
-import chatbotSplash from "../assets/chatbot-splash.webm";
-import contextMenu from "../assets/context-menu-confirmation.webm";
 ---
+
+<style>
+  .content {
+    position: relative;
+    padding-bottom: var(--size-7);
+    margin-bottom: var(--footer-height);
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow-2);
+    z-index: 1;
+  }
+
+  h2 {
+    padding-bottom: var(--size-2);
+    border-bottom: 1px solid var(--border-color);
+  }
+</style>
 
 <html lang="en">
   <head>
@@ -11,261 +32,30 @@ import contextMenu from "../assets/context-menu-confirmation.webm";
     <meta name="description" content="Molnár Bence Resume" />
     <title>Resume - Bence Molnár</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <style is:global lang="scss">
-      @for $i from 1 through 20 {
-        .skill-group:has(li:nth-child(#{$i}):not(:hover))
-          .icon-grid
-          div:nth-child(#{$i})
-          img {
-          transform: scale(0.8);
-        }
-        .skill-group:has(li:nth-child(#{$i}):hover)
-          .icon-grid
-          div:nth-child(#{$i})
-          img {
-          transform: scale(1.2) translateY(-10%);
-        }
-      }
-    </style>
   </head>
 
   <body>
+    <Header />
     <main class="content">
-      <header>
-        <div class="resume-header-text">
-          <h1 class="gradient-text">Bence Molnár</h1>
-          <p>
-            Full stack dev with an interest in web design, UX and
-            microinteractions. Enterprise apps <i>can</i> look & feel nice!
-          </p>
-        </div>
-        <img
-          src="https://www.gravatar.com/avatar/d069f08d4ffdf24451b7a7b839e80a4f?s=160"
-          alt="gravatar"
-          class="gravatar border-blob-1"
-        />
-      </header>
       <section class="resume-skills">
         <h2 class="uppercase">Skills</h2>
-        <div class="paragraph card skill-group">
-          <h3>Frontend</h3>
-          <div class="columns-2">
-            <ul>
-              <li>Figma</li>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>TypeScript</li>
-              <li>Angular</li>
-              <li>VueJS</li>
-              <li>React</li>
-              <li>Svelte</li>
-            </ul>
-            <div id="iconGrid" class="icon-grid">
-              <div>
-                <img
-                  alt="Figma icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Html5 icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Css3 icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Javascript icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Typescript icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Angular icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="VueJs icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="React icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                />
-              </div>
-              <div class="filter-invert">
-                <img
-                  alt="Svelte icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-plain.svg"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="paragraph card skill-group">
-          <h3>Backend</h3>
-          <div class="columns-2">
-            <ul>
-              <li>Node.js</li>
-              <li>NestJS</li>
-              <li>Java</li>
-              <li>SpringBoot</li>
-              <li>PostgreSQL</li>
-              <li>Oracle DB</li>
-              <li>Nginx</li>
-              <li>Docker</li>
-              <li>Terraform</li>
-            </ul>
-            <div id="iconGrid" class="icon-grid">
-              <div>
-                <img
-                  alt="Node.js icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="NestJs icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Java icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Spring icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Postgresql icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Oracle icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Nginx icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Docker icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
-                />
-              </div>
-              <div>
-                <img
-                  alt="Terraform icon"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <FrontendTechnologies />
+        <BackendTechnologies />
       </section>
 
       <section class="resume-work">
         <h2 class="uppercase">Work</h2>
-        <div class="paragraph card">
-          <h3 class="m-b-0">Snapsoft</h3>
-          <span>2022 -</span>
-          <ul>
-            <li>Enterprise SPAs</li>
-            <li>Training UI for industrial robots</li>
-          </ul>
-        </div>
-        <div class="paragraph card">
-          <h3 class="m-b-0">Talk-A-Bot</h3>
-          <span>2020 - 2022</span>
-          <p>Management UI for chatbots and natural language processing</p>
-        </div>
-        <div class="paragraph card">
-          <h3 class="m-b-0">Adnovum</h3>
-          <span>2020</span>
-          <p>Identity and authentication provider</p>
-        </div>
-        <div class="paragraph card">
-          <h3 class="m-b-0">Deutsche Telekom IT Solutions</h3>
-          <span>2016 - 2020</span>
-          <p>Billing applications</p>
-        </div>
+        <WorkTimeline />
       </section>
       <section class="resume-studies">
         <h2 class="uppercase">Studies</h2>
-        <div class="paragraph card">
-          <h3 class="m-b-0">
-            Budapest University of Technology and Economics <br /> Faculty of Electrical
-            Engineering and Informatics
-          </h3>
-          <span>2013 - 2017</span>
-          <ul>
-            <li>Electrical Engineering Faculty</li>
-            <li>Java fatclients with JavaFx</li>
-            <li>Inverse kinematics in C</li>
-          </ul>
-        </div>
+        <StudiesTimeline />
       </section>
       <section class="resume-showcase">
         <h2 class="uppercase">Snippets</h2>
-        <div class="showcase-content">
-          <div>
-            <h3>Chatbot splash screen</h3>
-            <a
-              href="https://codesandbox.io/s/chatbot-splash-srfqg"
-              aria-label="Chatbot splash screen"
-            >
-              <video autoplay muted loop>
-                <source src={chatbotSplash} />
-              </video>
-            </a>
-          </div>
-          <div>
-            <h3>Card deletion</h3>
-            <a
-              href="https://codesandbox.io/s/react-card-deletion-framer-motion-u26g34"
-              aria-label="Card deletion"
-            >
-              <video autoplay muted loop>
-                <source src={contextMenu} />
-              </video>
-            </a>
-          </div>
-        </div>
+        <Showcase />
       </section>
     </main>
-    <footer class="no-print">
-      <section>
-        <p>🙈 🙉 🙊</p>
-      </section>
-    </footer>
+    <Footer />
   </body>
 </html>

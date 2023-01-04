@@ -21,6 +21,17 @@ html {
   font-size: var(--font-size-fluid-00);
 }
 
+body {
+  background: var(--bg-color);
+}
+
+section,
+.section {
+  max-inline-size: var(--size-content-3);
+  padding: var(--size-3) var(--size-fluid-3);
+  margin: 0 auto;
+}
+
 h1 {
   font-size: var(--font-size-5);
 }
@@ -40,22 +51,6 @@ h4 {
   font-weight: var(--font-weight-5);
 }
 
-.content {
-  position: relative;
-  padding-bottom: var(--size-7);
-  margin-bottom: var(--footer-height);
-  background-color: var(--bg-color);
-  box-shadow: var(--shadow-2);
-  z-index: 1;
-}
-
-.content > *,
-section {
-  max-inline-size: var(--size-content-3);
-  padding: var(--size-3) var(--size-fluid-3);
-  margin: 0 auto;
-}
-
 ol,
 ul {
   list-style: none;
@@ -69,106 +64,21 @@ li {
   line-height: var(--font-lineheight-4);
 }
 
-.gravatar {
-  width: 80px;
-  aspect-ratio: 1 / 1;
-  box-shadow: var(--shadow-2);
-  border-radius: var(--radius-blob-1);
-  animation: blobbing 8s linear infinite;
-}
-
-header {
-  display: grid;
-  grid-template-columns: 1fr 80px;
-  justify-items: start;
-  align-items: center;
-  gap: var(--size-3);
-}
-
-.resume-header-text {
-  max-inline-size: var(--size-content-2);
-}
-
-h2 {
-  padding-bottom: var(--size-2);
-  border-bottom: 1px solid var(--border-color);
-}
-
-h3 + span {
-  display: block;
-  font-weight: var(--font-weight-5);
-  margin-bottom: var(--size-3);
-}
-
-.paragraph {
-  margin-top: var(--size-7);
-  padding: var(--size-5);
-}
-
 .card {
   border-radius: var(--radius-3);
   border-width: var(--border-size-1);
   border-color: var(--border-color);
   border-style: solid;
+  margin-top: var(--size-7);
+  padding: var(--size-5);
 }
 
-.paragraph > h3 {
+.card > h3 {
   margin-top: 0;
 }
 
-.paragraph > p {
+.card > p {
   margin-bottom: 0;
-}
-
-.icon-grid {
-  --raster-size: var(--size-7);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, var(--raster-size));
-  grid-template-rows: repeat(auto-fit, var(--raster-size));
-  gap: var(--size-5);
-  justify-content: end;
-}
-
-.skill-group:not(:has(li:hover)) #iconGrid.icon-grid img {
-  transform: none;
-}
-
-.icon-grid img {
-  width: var(--raster-size);
-  aspect-ratio: var(--ratio-square);
-  transition: transform 300ms var(--ease-elastic-4);
-}
-
-.showcase-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--size-13), 1fr));
-  justify-content: space-between;
-  column-gap: var(--size-8);
-  row-gap: var(--size-3);
-}
-
-.resume-showcase a {
-  display: block;
-  border-radius: var(--radius-3);
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: var(--ratio-landscape);
-  background-color: #fff;
-  box-shadow: var(--shadow-2);
-  transition: transform 300ms var(--ease-elastic-4),
-    box-shadow 300ms var(--ease-elastic-4);
-}
-
-.resume-showcase a video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.resume-showcase a:hover,
-.resume-showcase a:focus {
-  transform: scale(1.02) translateY(-2%);
-  box-shadow: var(--shadow-3);
 }
 
 footer {

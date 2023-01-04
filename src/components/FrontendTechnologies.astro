@@ -1,0 +1,54 @@
+---
+import Technologies, { Technology } from "./Technologies.astro";
+
+const technologies: Technology[] = [
+  {
+    name: "Figma",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+  },
+  {
+    name: "HTML",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg",
+  },
+  {
+    name: "CSS",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg",
+  },
+  {
+    name: "Javascript",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg",
+  },
+  {
+    name: "Typescript",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg",
+  },
+  {
+    name: "Angular",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg",
+  },
+  {
+    name: "VueJs",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+  },
+  {
+    name: "React",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+  {
+    name: "Svelte",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-plain.svg",
+    className: "filter-invert",
+  },
+];
+---
+
+<Technologies title="Frontend" technologies={technologies} />

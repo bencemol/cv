@@ -1,0 +1,69 @@
+---
+interface Props {
+  title: string;
+  technologies: Technology[];
+}
+
+export interface Technology {
+  name: string;
+  iconUrl: string;
+  className?: string;
+}
+
+const { title, technologies } = Astro.props;
+---
+
+<style lang="scss">
+  @for $i from 1 through 20 {
+    .skill-group:has(li:nth-child(#{$i}):not(:hover))
+      .icon-grid
+      img:nth-child(#{$i}) {
+      transform: scale(0.8);
+    }
+    .skill-group:has(li:nth-child(#{$i}):hover)
+      .icon-grid
+      img:nth-child(#{$i}) {
+      transform: scale(1.2) translateY(-10%);
+    }
+  }
+
+  .icon-grid {
+    --raster-size: var(--size-7);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--raster-size));
+    grid-template-rows: repeat(auto-fit, var(--raster-size));
+    gap: var(--size-5);
+    justify-content: end;
+  }
+
+  .skill-group:not(:has(li:hover)) #iconGrid.icon-grid img {
+    transform: none;
+  }
+
+  .icon-grid img {
+    width: var(--raster-size);
+    aspect-ratio: var(--ratio-square);
+    transition: transform 300ms var(--ease-elastic-4);
+  }
+</style>
+
+<div class="card skill-group">
+  <h3>{title}</h3>
+  <div class="columns-2">
+    <ul>
+      {technologies.map((technology) => <li>{technology.name}</li>)}
+    </ul>
+    <div id="iconGrid" class="icon-grid">
+      {
+        technologies.map((technology) => (
+          <img
+            class={technology.className}
+            id={`${technology.name}Icon`}
+            alt={`${technology.name} icon`}
+            src={technology.iconUrl}
+          />
+        ))
+      }
+    </div>
+  </div>
+</div>
