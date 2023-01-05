@@ -28,7 +28,7 @@ const { title, technologies } = Astro.props;
 
   .columns-2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
   }
 
   li {
@@ -62,12 +62,11 @@ const { title, technologies } = Astro.props;
   }
 
   .icon-grid {
-    --raster-size: var(--size-7);
+    --raster-size: minmax(var(--size-8), 1fr);
     display: grid;
-    grid-template-columns: repeat(auto-fit, var(--raster-size));
-    grid-template-rows: repeat(auto-fit, var(--raster-size));
-    gap: var(--size-5);
-    justify-content: end;
+    grid-template-columns: repeat(3, var(--raster-size));
+    justify-items: center;
+    aspect-ratio: 1 / 1;
   }
 
   .skill-group:not(:has(li:hover)) #iconGrid.icon-grid img {
@@ -75,7 +74,7 @@ const { title, technologies } = Astro.props;
   }
 
   .icon-grid img {
-    width: var(--raster-size);
+    width: clamp(var(--size-7), 50%, var(--size-8));
     aspect-ratio: var(--ratio-square);
     will-change: transform;
     transition: transform 300ms var(--ease-elastic-4);
@@ -90,7 +89,7 @@ const { title, technologies } = Astro.props;
     </ul>
     <div id="iconGrid" class="icon-grid">
       {
-        technologies.map((technology) => (
+        technologies.map((technology, i) => (
           <img alt={`${technology.name} icon`} src={technology.iconUrl} />
         ))
       }
