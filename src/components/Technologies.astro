@@ -76,6 +76,7 @@ const { title, technologies } = Astro.props;
   .icon-grid img {
     width: var(--raster-size);
     aspect-ratio: var(--ratio-square);
+    will-change: transform;
     transition: transform 300ms var(--ease-elastic-4);
   }
 </style>
