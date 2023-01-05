@@ -23,6 +23,18 @@
     will-change: border-radius;
     animation: blobbing 8s linear infinite;
   }
+
+  @keyframes blobbing {
+    0% {
+      border-radius: var(--radius-blob-1);
+    }
+    33% {
+      border-radius: var(--radius-blob-2);
+    }
+    66% {
+      border-radius: var(--radius-blob-3);
+    }
+  }
 </style>
 
 <header class="section">

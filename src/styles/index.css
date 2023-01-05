@@ -1,7 +1,6 @@
 @import "open-props/style";
 @import "./theme.css";
 @import "./utils.css";
-@import "./animations.css";
 
 *:focus-visible {
   outline-offset: 10px;
@@ -65,10 +64,10 @@ li {
 }
 
 .card {
+  position: relative;
   border-radius: var(--radius-3);
-  border-width: var(--border-size-1);
-  border-color: var(--border-color);
-  border-style: solid;
+  overflow: hidden;
+  background: var(--bg-color-dark);
   margin-top: var(--size-7);
   padding: var(--size-5);
 }

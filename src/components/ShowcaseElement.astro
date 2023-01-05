@@ -10,8 +10,9 @@ const { title, href, videoSrc } = Astro.props;
 
 <style>
   .showcase-card {
+    --border-radius: var(--radius-3);
     position: relative;
-    border-radius: var(--radius-3);
+    border-radius: var(--border-radius);
     background-color: #fff;
     box-shadow: var(--shadow-2);
     will-change: transform;
@@ -25,7 +26,7 @@ const { title, href, videoSrc } = Astro.props;
     height: 100%;
     left: 0;
     top: 0;
-    border-radius: inherit;
+    border-radius: var(--border-radius);
     box-shadow: var(--shadow-3);
     z-index: -1;
     opacity: 0;
@@ -36,7 +37,7 @@ const { title, href, videoSrc } = Astro.props;
     display: block;
     overflow: hidden;
     width: 100%;
-    border-radius: inherit;
+    border-radius: var(--border-radius);
     aspect-ratio: var(--ratio-landscape);
   }
 
@@ -44,6 +45,7 @@ const { title, href, videoSrc } = Astro.props;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: var(--border-radius); /* safari */
   }
 
   .showcase-card:hover,

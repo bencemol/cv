@@ -34,6 +34,7 @@ const { title, technologies } = Astro.props;
   li {
     position: relative;
     width: max-content;
+    z-index: 0;
   }
 
   li::after {
@@ -47,7 +48,7 @@ const { title, technologies } = Astro.props;
     padding: var(--padding-y) var(--padding-x);
     position: absolute;
     border-radius: var(--radius-2);
-    background-color: var(--bg-color-dark);
+    background: var(--gradient);
     z-index: -1;
     transform: translate(
       calc(-1 * var(--padding-x)),
@@ -57,7 +58,7 @@ const { title, technologies } = Astro.props;
   }
 
   li:hover::after {
-    opacity: 1;
+    opacity: 0.3;
   }
 
   .icon-grid {
