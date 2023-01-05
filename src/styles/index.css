@@ -64,9 +64,7 @@ li {
 }
 
 .card {
-  position: relative;
   border-radius: var(--radius-3);
-  overflow: hidden;
   background: var(--bg-color-dark);
   margin-top: var(--size-7);
   padding: var(--size-5);
@@ -78,18 +76,4 @@ li {
 
 .card > p {
   margin-bottom: 0;
-}
-
-footer {
-  box-sizing: border-box;
-  width: 100%;
-  height: var(--footer-height);
-  position: fixed;
-  bottom: 0;
-  padding: var(--size-3);
-  z-index: 0;
-}
-
-footer p {
-  text-align: center;
 }
