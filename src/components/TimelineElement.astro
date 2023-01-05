@@ -10,6 +10,7 @@ const { title, timespan } = Astro.props;
 <style>
   .title {
     white-space: pre-wrap;
+    margin-bottom: var(--size-1);
   }
 
   h3 + span {
@@ -20,7 +21,7 @@ const { title, timespan } = Astro.props;
 </style>
 
 <div class="card">
-  <h3 class="title m-b-0">{title}</h3>
+  <h3 class="title gradient-text">{title}</h3>
   <span>{timespan}</span>
   <slot />
 </div>

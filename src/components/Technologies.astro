@@ -82,7 +82,7 @@ const { title, technologies } = Astro.props;
 </style>
 
 <div class="card skill-group">
-  <h3>{title}</h3>
+  <h3 class="gradient-text">{title}</h3>
   <div class="columns-2">
     <ul>
       {technologies.map((technology) => <li>{technology.name}</li>)}

@@ -3,10 +3,6 @@
   letter-spacing: var(--font-letterspacing-4);
 }
 
-.m-b-0 {
-  margin-bottom: 0;
-}
-
 .gradient-text {
   background: var(--gradient);
   -webkit-background-clip: text;
