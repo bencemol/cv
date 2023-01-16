@@ -1,10 +1,1 @@
-.uppercase {
-  text-transform: uppercase;
-  letter-spacing: var(--font-letterspacing-4);
-}
-
-.gradient-text {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+/* */

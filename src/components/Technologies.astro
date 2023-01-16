@@ -12,87 +12,54 @@ export interface Technology {
 const { title, technologies } = Astro.props;
 ---
 
-<style lang="scss">
-  @for $i from 1 through 20 {
-    .skill-group:has(li:nth-child(#{$i}):not(:hover))
-      .icon-grid
-      img:nth-child(#{$i}) {
-      transform: scale(0.8);
-    }
-    .skill-group:has(li:nth-child(#{$i}):hover)
-      .icon-grid
-      img:nth-child(#{$i}) {
-      transform: scale(1.2) translateY(-10%);
-    }
+<style>
+  .technologies {
+    column-count: 2;
+    column-gap: var(--size-3);
+    column-width: var(--size-12);
   }
 
-  .columns-2 {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+  .technology {
+    display: flex;
+    align-items: center;
+    height: var(--size-7);
+    gap: var(--size-5);
+    padding: var(--size-2) var(--size-3);
+    border-radius: var(--radius-3);
   }
 
-  li {
-    position: relative;
-    width: max-content;
-    z-index: 0;
+  .technology:not(:last-child) {
+    margin-bottom: var(--size-1);
   }
 
-  li::after {
-    --padding-x: var(--size-2);
-    --padding-y: calc(var(--size-1) / 2);
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
+  .technology:hover {
+    background-color: var(--highlight-color);
+  }
+
+  .technology img {
     height: 100%;
-    padding: var(--padding-y) var(--padding-x);
-    position: absolute;
-    border-radius: var(--radius-2);
-    background: var(--gradient);
-    z-index: -1;
-    transform: translate(
-      calc(-1 * var(--padding-x)),
-      calc(-1 * var(--padding-y))
-    );
-    opacity: 0;
+    display: inline-block;
+    aspect-ratio: 1/1;
+    filter: brightness(0%);
   }
 
-  li:hover::after {
-    opacity: 0.3;
-  }
-
-  .icon-grid {
-    --raster-size: minmax(var(--size-8), 1fr);
-    display: grid;
-    grid-template-columns: repeat(3, var(--raster-size));
-    justify-items: center;
-    aspect-ratio: 1 / 1;
-  }
-
-  .skill-group:not(:has(li:hover)) #iconGrid.icon-grid img {
-    transform: none;
-  }
-
-  .icon-grid img {
-    width: clamp(var(--size-7), 50%, var(--size-8));
-    aspect-ratio: var(--ratio-square);
-    will-change: transform;
-    transition: transform 300ms var(--ease-elastic-4);
+  @media (prefers-color-scheme: dark) {
+    .technology img {
+      filter: brightness(0%) invert(1);
+    }
   }
 </style>
 
-<div class="card skill-group">
-  <h3 class="gradient-text">{title}</h3>
-  <div class="columns-2">
-    <ul>
-      {technologies.map((technology) => <li>{technology.name}</li>)}
-    </ul>
-    <div id="iconGrid" class="icon-grid">
-      {
-        technologies.map((technology, i) => (
-          <img alt={`${technology.name} icon`} src={technology.iconUrl} />
-        ))
-      }
-    </div>
-  </div>
+<div class="card">
+  <h3>{title}</h3>
+  <ul class="technologies">
+    {
+      technologies.map((technology) => (
+        <li class="technology">
+          <img alt={`${technology.name} icon`} src={technology.iconUrl} />{" "}
+          {technology.name}
+        </li>
+      ))
+    }
+  </ul>
 </div>
