@@ -20,7 +20,7 @@ html {
     --border-color: var(--gray-7);
     --gradient: var(--gradient-25);
     --gradient-opacity: 0.6;
-    --highlight-color: hsl(var(--gray-9-hsl) / 70%);
+    --highlight-color: hsl(var(--gray-9-hsl) / 30%);
   }
 
   .filter-invert {
