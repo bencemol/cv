@@ -15,9 +15,8 @@ const { title, technologies } = Astro.props;
 <style>
   .technologies {
     column-count: 2;
-    column-gap: var(--size-3);
+    column-gap: var(--size-6);
     column-width: var(--size-12);
-    margin: 0 calc(-1 * var(--size-3));
   }
 
   .technology {
@@ -25,7 +24,7 @@ const { title, technologies } = Astro.props;
     align-items: center;
     height: var(--size-6);
     gap: var(--size-5);
-    padding: var(--size-2) var(--size-3);
+    padding: var(--size-2) 0;
     border-radius: var(--radius-3);
   }
 
@@ -33,16 +32,11 @@ const { title, technologies } = Astro.props;
     margin-bottom: var(--size-1);
   }
 
-  .technology:hover {
-    background-color: var(--highlight-color);
-  }
-
   .technology img {
     height: 100%;
     display: inline-block;
     aspect-ratio: 1;
     filter: brightness(0%);
-    will-change: transform;
   }
 
   @media (prefers-color-scheme: dark) {
