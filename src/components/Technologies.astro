@@ -17,6 +17,7 @@ const { title, technologies } = Astro.props;
     column-count: 2;
     column-gap: var(--size-3);
     column-width: var(--size-12);
+    margin: 0 calc(-1 * var(--size-3));
   }
 
   .technology {
@@ -25,7 +26,6 @@ const { title, technologies } = Astro.props;
     height: var(--size-6);
     gap: var(--size-5);
     padding: var(--size-2) var(--size-3);
-    margin-left: calc(-1 * var(--size-3));
     border-radius: var(--radius-3);
   }
 
