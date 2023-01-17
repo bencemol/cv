@@ -9,60 +9,30 @@ const { title, href, videoSrc } = Astro.props;
 ---
 
 <style>
-  .showcase-card {
-    --border-radius: var(--radius-3);
-    position: relative;
-    border-radius: var(--border-radius);
-    background-color: var(--gradient);
-    will-change: transform;
-    transition: transform 300ms var(--ease-elastic-4);
-  }
-
-  .showcase-card::after {
-    --outline-offset: var(--size-2);
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: var(--outline-offset);
-    left: calc(-1 * var(--outline-offset));
-    top: calc(-1 * var(--outline-offset));
-    border-radius: calc(var(--border-radius) + var(--outline-offset));
-    background: var(--gradient);
-    z-index: -1;
-    transform-origin: center;
-    transform: scale(0.8);
-    transition: transform 250ms var(--ease-elastic-2);
-  }
-
   a {
     display: block;
     overflow: hidden;
-    width: 100%;
     border-radius: var(--border-radius);
+    text-decoration: none;
+  }
+
+  video {
     aspect-ratio: var(--ratio-landscape);
-  }
-
-  a video {
     width: 100%;
-    height: 100%;
     object-fit: cover;
-    transform: translateY(-1px);
-    border-radius: var(--border-radius); /* safari */
+    border-radius: var(--radius-3); /* safari */
+    transition: transform 200ms var(--ease-elastic-4);
+    will-change: transform;
   }
 
-  .showcase-card:hover::after {
-    transform: scale(1);
+  .card:hover video {
+    transform: scale(1.03) translateY(-2px);
   }
 </style>
 
-<div>
+<a class="card" href={href} aria-label={title}>
   <h3>{title}</h3>
-  <div class="showcase-card">
-    <a href={href} aria-label={title}>
-      <video autoplay muted loop>
-        <source src={videoSrc} />
-      </video>
-    </a>
-  </div>
-</div>
+  <video autoplay muted loop>
+    <source src={videoSrc} />
+  </video>
+</a>

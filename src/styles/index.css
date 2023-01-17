@@ -63,6 +63,10 @@ li {
   line-height: var(--font-lineheight-4);
 }
 
+a:visited {
+  color: unset;
+}
+
 .card {
   background-image: var(--gradient);
   border-radius: var(--radius-3);
