@@ -15,7 +15,8 @@ body {
 html {
   --footer-height: var(--size-13);
   background: var(--gradient);
-  background-size: 100% 57%;
+  background-size: 100% var(--footer-height);
+  background-position: bottom;
   color: var(--text-color);
   font-family: var(--font-sans);
   font-size: var(--font-size-fluid-00);
@@ -63,23 +64,10 @@ li {
 }
 
 .card {
-  position: relative;
+  background-image: var(--gradient);
   border-radius: var(--radius-3);
   margin-top: var(--size-7);
-  padding: var(--size-5);
-  overflow: hidden;
-}
-
-.card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: var(--gradient-opacity);
-  z-index: -1;
-  background: var(--gradient);
+  padding: var(--size-5) var(--size-7);
 }
 
 .card > h3 {

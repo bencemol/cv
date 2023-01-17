@@ -7,24 +7,18 @@ html {
   --text-color: var(--gray-9);
   --border-color: var(--gray-4);
   --gradient: var(--gradient-15);
-  --gradient-opacity: 0.42;
-  --highlight-color: hsl(var(--gray-0-hsl) / 70%);
+  --highlight-color: hsl(var(--gray-1-hsl) / 40%);
 }
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
-    --bg-color: var(--gray-9);
+    --bg-color: var(--gray-10);
     --bg-color-dark: var(--gray-8);
     --text-color: var(--gray-1);
     --border-color: var(--gray-7);
-    --gradient: var(--gradient-25);
-    --gradient-opacity: 0.6;
-    --highlight-color: hsl(var(--gray-9-hsl) / 30%);
-  }
-
-  .filter-invert {
-    filter: invert(1);
+    --gradient: linear-gradient(to bottom right, #0c1c62 0%, #e850b7 100%);
+    --highlight-color: hsl(var(--gray-10-hsl) / 40%);
   }
 }
 
