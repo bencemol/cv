@@ -63,6 +63,10 @@ li {
   line-height: var(--font-lineheight-4);
 }
 
+a {
+  color: unset;
+}
+
 a:visited {
   color: unset;
 }
