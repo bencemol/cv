@@ -34,28 +34,23 @@
 
     function translateWithMouse(event) {
       const { left, top, width, height } = footer.getBoundingClientRect();
-      const offsetX =
-        -width * range * 0.5 + range * (event.clientX - left - width * 0.5);
-      const offsetY =
-        root.offsetHeight -
-        height -
-        height * range * 0.5 +
-        range * (event.clientY - top - height * 0.5);
-      root.style.setProperty("--offset-x", `${Math.floor(offsetX)}px`);
-      root.style.setProperty("--offset-y", `${Math.floor(offsetY)}px`);
+      translate(event.clientX, event.clientY, left, top, width, height);
     }
 
     function translateWithOrientation(event) {
       const { left, top, width, height } = footer.getBoundingClientRect();
-      const beta = Math.abs((event.beta / 180) * root.offsetHeight);
       const gamma = Math.abs((event.gamma / 90) * root.offsetWidth);
-      const offsetX =
-        -width * range * 0.5 + range * (gamma - left - width * 0.5);
+      const beta = top + Math.abs((event.beta / 180) * height);
+      translate(gamma, beta, left, top, width, height);
+    }
+
+    function translate(x, y, left, top, width, height) {
+      const offsetX = -width * range * 0.5 + range * (x - left - width * 0.5);
       const offsetY =
         root.offsetHeight -
         height -
         height * range * 0.5 +
-        range * (beta - top - height * 0.5);
+        range * (y - top - height * 0.5);
       root.style.setProperty("--offset-x", `${Math.floor(offsetX)}px`);
       root.style.setProperty("--offset-y", `${Math.floor(offsetY)}px`);
     }
