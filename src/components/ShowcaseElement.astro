@@ -32,8 +32,13 @@ const { title, href, videoSrc } = Astro.props;
     transform: scale(1.03) translateY(-2px);
   }
 
+  p {
+    margin-top: 1.1rem;
+    text-align: right;
+  }
+
   .arrow {
-    margin-left: 0.5ch;
+    transform: translateX(0.5ch);
   }
 
   .arrow :global(.shaft) {
