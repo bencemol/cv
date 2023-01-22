@@ -28,7 +28,7 @@
       requestAnimationFrame(() => translateWithMouse(event))
     );
 
-    footer.addEventListener("deviceorientation", (event) =>
+    addEventListener("deviceorientation", (event) =>
       requestAnimationFrame(() => translateWithOrientation(event))
     );
 
@@ -47,15 +47,15 @@
 
     function translateWithOrientation(event) {
       const { left, top, width, height } = footer.getBoundingClientRect();
-      const beta = (event.beta / 180) * root.offsetWidth;
-      const gamma = (event.gamma / 90) * root.offsetHeight;
+      const beta = Math.abs((event.beta / 180) * root.offsetHeight);
+      const gamma = Math.abs((event.gamma / 90) * root.offsetWidth);
       const offsetX =
-        -width * range * 0.5 + range * (event.clientX - left - width * 0.5);
+        -width * range * 0.5 + range * (gamma - left - width * 0.5);
       const offsetY =
         root.offsetHeight -
         height -
         height * range * 0.5 +
-        range * (event.clientY - top - height * 0.5);
+        range * (beta - top - height * 0.5);
       root.style.setProperty("--offset-x", `${Math.floor(offsetX)}px`);
       root.style.setProperty("--offset-y", `${Math.floor(offsetY)}px`);
     }
