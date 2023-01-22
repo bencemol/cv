@@ -32,17 +32,14 @@ const { title, href, videoSrc } = Astro.props;
     transform: scale(1.03) translateY(-2px);
   }
 
-  h5 {
-    margin: var(--size-3) 0 0;
-  }
-
   .arrow {
     margin-left: 0.5ch;
   }
 
   .arrow :global(.shaft) {
-    stroke-dasharray: 14;
-    stroke-dashoffset: 14;
+    --duration: 4000ms;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
     transition: stroke-dashoffset 0ms var(--ease-out-4);
   }
 
@@ -66,5 +63,7 @@ const { title, href, videoSrc } = Astro.props;
   <video autoplay muted loop>
     <source src={videoSrc} />
   </video>
-  <h5>Checkout on CodeSandbox <ArrowRight class="arrow" /></h5>
+  <p>
+    Open <span class="nowrap">CodeSandbox <ArrowRight class="arrow" /></span>
+  </p>
 </a>

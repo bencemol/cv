@@ -15,9 +15,9 @@ body {
 html {
   --footer-height: var(--size-13);
   background: var(--gradient);
-  background-size: 120% calc(1.2 * var(--footer-height));
+  background-size: 130% calc(1.3 * var(--footer-height));
   background-position: var(--offset-x, 0) var(--offset-y, bottom);
-  transition: background-position 1000ms var(--ease-out-4);
+  transition: background-position 300ms var(--ease-elastic-5);
   color: var(--text-color);
   font-family: var(--font-sans);
   font-size: var(--font-size-1);
@@ -51,6 +51,11 @@ h3 {
 h4 {
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-5);
+}
+
+h5 {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-4);
 }
 
 ol,
@@ -89,6 +94,6 @@ a:visited {
 
 .icon-tabler {
   display: inline-block;
-  height: var(--font-size-fluid-0);
+  height: var(--font-size-2);
   vertical-align: bottom;
 }
