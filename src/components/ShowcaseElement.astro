@@ -28,7 +28,7 @@ const { title, href, videoSrc } = Astro.props;
     will-change: transform;
   }
 
-  .card:hover video {
+  :is(.card:hover, .card:focus-visible) video {
     transform: scale(1.03) translateY(-2px);
   }
 
@@ -51,12 +51,12 @@ const { title, href, videoSrc } = Astro.props;
     transition: transform var(--duration) var(--ease-elastic-4);
   }
 
-  .card:hover .arrow :global(.shaft) {
+  :is(.card:hover, .card:focus-visible) .arrow :global(.shaft) {
     stroke-dashoffset: 0;
     transition-duration: var(--duration);
   }
 
-  .card:hover .arrow :global(.head) {
+  :is(.card:hover, .card:focus-visible) .arrow :global(.head) {
     transform: translateX(0);
   }
 </style>

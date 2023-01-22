@@ -15,11 +15,12 @@ body {
 html {
   --footer-height: var(--size-13);
   background: var(--gradient);
-  background-size: 100% var(--footer-height);
-  background-position: bottom;
+  background-size: 120% calc(1.2 * var(--footer-height));
+  background-position: var(--offset-x, 0) var(--offset-y, bottom);
+  transition: background-position 1000ms var(--ease-out-4);
   color: var(--text-color);
   font-family: var(--font-sans);
-  font-size: var(--font-size-fluid-0);
+  font-size: var(--font-size-1);
 }
 
 body {

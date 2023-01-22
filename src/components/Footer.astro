@@ -18,6 +18,28 @@
 </style>
 
 <footer class="no-print">
+  <script>
+    const range = 0.2;
+
+    const root = document.querySelector("html");
+    const footer = document.querySelector("footer");
+    footer.addEventListener("mousemove", (event) =>
+      requestAnimationFrame(() => translateWithMouse(event))
+    );
+
+    function translateWithMouse(event) {
+      const { left, top, width, height } = footer.getBoundingClientRect();
+      const offsetX =
+        -width * range * 0.5 + range * (event.clientX - left - width * 0.5);
+      const offsetY =
+        root.offsetHeight -
+        height -
+        height * range * 0.5 +
+        range * (event.clientY - top - height * 0.5);
+      root.style.setProperty("--offset-x", `${Math.floor(offsetX)}px`);
+      root.style.setProperty("--offset-y", `${Math.floor(offsetY)}px`);
+    }
+  </script>
   <section>
     <p>🙈 🙉 🙊</p>
   </section>
