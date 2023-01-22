@@ -19,7 +19,7 @@ html {
   background-position: bottom;
   color: var(--text-color);
   font-family: var(--font-sans);
-  font-size: var(--font-size-fluid-00);
+  font-size: var(--font-size-fluid-0);
 }
 
 body {
@@ -84,4 +84,10 @@ a:visited {
 
 .card > p {
   margin-bottom: 0;
+}
+
+.icon-tabler {
+  display: inline-block;
+  height: var(--font-size-fluid-0);
+  vertical-align: bottom;
 }

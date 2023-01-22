@@ -1,4 +1,6 @@
 ---
+import ArrowRight from "./icons/ArrowRight.astro";
+
 interface Props {
   title: string;
   href: string;
@@ -10,6 +12,7 @@ const { title, href, videoSrc } = Astro.props;
 
 <style>
   a {
+    --duration: 200ms;
     display: block;
     overflow: hidden;
     border-radius: var(--border-radius);
@@ -21,12 +24,40 @@ const { title, href, videoSrc } = Astro.props;
     width: 100%;
     object-fit: cover;
     border-radius: var(--radius-3); /* safari */
-    transition: transform 200ms var(--ease-elastic-4);
+    transition: transform var(--duration) var(--ease-elastic-4);
     will-change: transform;
   }
 
   .card:hover video {
     transform: scale(1.03) translateY(-2px);
+  }
+
+  h5 {
+    margin: var(--size-3) 0 0;
+  }
+
+  .arrow {
+    margin-left: 0.5ch;
+  }
+
+  .arrow :global(.shaft) {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    transition: stroke-dashoffset 0ms var(--ease-out-4);
+  }
+
+  .arrow :global(.head) {
+    transform: translateX(-40%);
+    transition: transform var(--duration) var(--ease-elastic-4);
+  }
+
+  .card:hover .arrow :global(.shaft) {
+    stroke-dashoffset: 0;
+    transition-duration: var(--duration);
+  }
+
+  .card:hover .arrow :global(.head) {
+    transform: translateX(0);
   }
 </style>
 
@@ -35,4 +66,5 @@ const { title, href, videoSrc } = Astro.props;
   <video autoplay muted loop>
     <source src={videoSrc} />
   </video>
+  <h5>Checkout on CodeSandbox <ArrowRight class="arrow" /></h5>
 </a>
