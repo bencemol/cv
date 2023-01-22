@@ -14,7 +14,7 @@ html {
     --bg-color-dark: var(--gray-8);
     --text-color: var(--gray-1);
     --border-color: var(--gray-1);
-    --gradient: linear-gradient(to bottom right, #653807 0%, #c24596 100%);
+    --gradient: linear-gradient(to bottom right, #744512, #9f357a, #6b2d79);
   }
 }
 
