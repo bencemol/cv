@@ -1,0 +1,157 @@
+---
+import Bulb from "./icons/Bulb.astro";
+import LightPull from "./icons/LightPull.astro";
+---
+
+<style>
+  .socket {
+    transform: rotateZ(180deg) translateY(20%);
+  }
+
+  .bulb.icon {
+    --duration: 200ms;
+    height: var(--size-10);
+    transform: scale(1, 1);
+    transform-origin: bottom;
+    transition: transform var(--duration) var(--ease-elastic-4);
+  }
+
+  .bulb.charging.icon {
+    transform: scale(0.95, 1.06);
+  }
+
+  .bulb :global(.rays) {
+    opacity: 0;
+  }
+
+  .bulb.on :global(.rays) {
+    opacity: 1;
+    animation: shiny var(--duration) var(--ease-elastic-4);
+    transform-origin: center;
+  }
+
+  .switch {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .range {
+    aspect-ratio: 1;
+    transform: rotateZ(90deg);
+    transform-origin: center;
+    cursor: grab;
+    margin: 0;
+    opacity: 0;
+    touch-action: none;
+  }
+
+  .range:active {
+    cursor: grabbing;
+  }
+
+  .light-pull.icon {
+    position: absolute;
+    top: -35%;
+    left: 50%;
+    height: var(--size-12);
+    transform: translate(-50%, calc(var(--p, 0%) / 3.5));
+    pointer-events: none;
+  }
+
+  .light-pull.icon.bounce-back {
+    transform: translate(-50%, 0%);
+    transition: transform 300ms var(--ease-elastic-5);
+  }
+
+  @keyframes shiny {
+    from {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+<script>
+  const root = document.querySelector("html") as HTMLElement;
+  const bulb = document.querySelector(".bulb") as HTMLElement;
+  const range = document.querySelector(".range") as HTMLInputElement;
+  const lightPull = document.querySelector(".light-pull") as HTMLElement;
+
+  let toggled = false;
+
+  range.addEventListener("input", (event: InputEvent) =>
+    pull((event.target as HTMLInputElement).valueAsNumber)
+  );
+  range.addEventListener("change", release);
+
+  function pull(value: number) {
+    lightPull.style.setProperty("--p", `${value}%`);
+    if (value > 75) {
+      bulb.classList.add("charging");
+      if (!toggled) {
+        hapticFeedback();
+      }
+      toggled = true;
+    } else {
+      bulb.classList.remove("charging");
+      toggleLight();
+    }
+  }
+
+  function release() {
+    lightPull.classList.add("bounce-back");
+    bulb.classList.remove("charging");
+    lightPull.addEventListener(
+      "transitionend",
+      () => {
+        lightPull.classList.remove("bounce-back");
+        bounceBack();
+      },
+      { once: true }
+    );
+    toggleLight();
+  }
+
+  function toggleLight() {
+    if (toggled) {
+      bulb.classList.toggle("on");
+      root.dataset.lights = root.dataset.lights === "on" ? "off" : "on";
+      hapticFeedback();
+      toggled = false;
+    }
+  }
+
+  function bounceBack() {
+    range.valueAsNumber = 0;
+    range.dispatchEvent(
+      new Event("input", { bubbles: true, cancelable: true })
+    );
+  }
+
+  function hapticFeedback() {
+    if (window.navigator.vibrate) {
+      window.navigator.vibrate(30);
+    }
+  }
+</script>
+<div class="socket d-flex col align-center">
+  <Bulb id="bulb" class="bulb" />
+</div>
+<div class="switch">
+  <label for="ligth-switch" style="display: none;"> Light switch</label>
+  <input
+    type="range"
+    class="range"
+    id="light-switch"
+    min="0"
+    max="100"
+    step="any"
+    value="0"
+  />
+  <LightPull class="light-pull" />
+</div>

@@ -34,7 +34,7 @@ html::after {
   transition: background 300ms var(--ease-out-4);
 }
 
-html[data-lights-on="true"]::after {
+html[data-lights="on"]::after {
   background: rgba(0, 0, 0, 0);
 }
 
