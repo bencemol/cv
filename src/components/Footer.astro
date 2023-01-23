@@ -116,6 +116,9 @@ import LightPull from "./icons/LightPull.astro";
       lightPull.style.setProperty("--p", `${event.target.value}%`);
       if (event.target.value > 75) {
         bulb.classList.add("charging");
+        if (!toggled) {
+          hapticFeedback();
+        }
         toggled = true;
       } else {
         bulb.classList.remove("charging");
@@ -123,6 +126,7 @@ import LightPull from "./icons/LightPull.astro";
           bulb.classList.toggle("charged");
           root.dataset.lightsOn = !(root.dataset.lightsOn === "true");
           toggled = false;
+          hapticFeedback();
         }
       }
     });
@@ -136,6 +140,7 @@ import LightPull from "./icons/LightPull.astro";
       if (toggled) {
         bulb.classList.toggle("charged");
         root.dataset.lightsOn = !(root.dataset.lightsOn === "true");
+        hapticFeedback();
       }
       toggled = false;
     });
@@ -145,6 +150,12 @@ import LightPull from "./icons/LightPull.astro";
       range.dispatchEvent(
         new Event("input", { bubbles: true, cancelable: true })
       );
+    }
+
+    function hapticFeedback() {
+      if (window.navigator.vibrate) {
+        window.navigator.vibrate(30);
+      }
     }
   </script>
   <section class="ceiling relative">
