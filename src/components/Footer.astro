@@ -1,4 +1,5 @@
 ---
+import Bulb from "./icons/Bulb.astro";
 ---
 
 <style>
@@ -10,15 +11,97 @@
     bottom: 0;
     padding: var(--size-3);
     z-index: 0;
+    background: radial-gradient(
+      transparent 0%,
+      rgba(255, 255, 255, calc(100% - var(--luminance, 0%)))
+        var(--luminance, 0%)
+    );
+    transition: --luminance 300ms var(--ease-elastic-4);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    footer {
+      background: radial-gradient(
+        transparent 0%,
+        rgba(0, 0, 0, calc(100% - var(--luminance, 0%))) var(--luminance, 0%)
+      );
+    }
   }
 
   footer p {
     text-align: center;
   }
+
+  button {
+    width: max-content;
+  }
+
+  .bulb.icon {
+    height: var(--size-10);
+  }
+
+  .bulb.charging.icon {
+    --duration: 200ms;
+    transform-origin: bottom;
+    animation: bouncy var(--duration) var(--ease-out-4) 2 alternate;
+  }
+
+  .bulb :global(.rays) {
+    opacity: 0;
+  }
+
+  .bulb.charged :global(.rays) {
+    opacity: 1;
+    animation: shiny calc(2 * var(--duration)) var(--ease-elastic-4);
+    transform-origin: center;
+  }
+
+  @keyframes bouncy {
+    from {
+      transform: scaleY(1) scaleX(1);
+    }
+    to {
+      transform: scaleY(1.06) scaleX(0.95);
+    }
+  }
+
+  @keyframes shiny {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 </style>
 
 <footer class="no-print">
+  <script>
+    const footer = document.querySelector("footer");
+    const charger = document.querySelector("#charger");
+    const bulb = document.querySelector(".bulb");
+    let counter = 0;
+    const limit = 10;
+    charger.onclick = () => {
+      bulb.classList.add("charging");
+      if (counter < limit) {
+        counter++;
+        footer.style.setProperty("--luminance", `${(counter * 100) / limit}%`);
+      }
+      if (counter >= limit) {
+        bulb.classList.add("charged");
+      }
+      bulb.addEventListener("animationend", () =>
+        bulb.classList.remove("charging")
+      );
+    };
+  </script>
   <section>
-    <p>🙈 🙉 🙊</p>
+    <p class="d-flex col align-center">
+      <Bulb id="bulb" class="bulb" />
+      <button id="charger"> Click me!</button>
+    </p>
   </section>
 </footer>
