@@ -62,7 +62,6 @@ import LightPull from "./icons/LightPull.astro";
     position: absolute;
     right: 0;
     top: 0;
-    overscroll-behavior: contain;
   }
 
   .range {
@@ -84,12 +83,12 @@ import LightPull from "./icons/LightPull.astro";
     top: -35%;
     left: 50%;
     height: var(--size-12);
-    transform: translate(-50%, calc(var(--p) / 2.8));
+    transform: translate(-50%, calc(var(--p, 0%) / 2.8));
     pointer-events: none;
   }
 
   .light-pull.icon.bounce-back {
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 0%);
     transition: transform 300ms var(--ease-elastic-5);
   }
 
@@ -153,9 +152,11 @@ import LightPull from "./icons/LightPull.astro";
       <Bulb id="bulb" class="bulb" />
     </div>
     <div class="pull">
+      <label for="ligth-switch" style="display: none;"> Light switch</label>
       <input
         type="range"
         class="range"
+        id="light-switch"
         min="0"
         max="100"
         step="any"
