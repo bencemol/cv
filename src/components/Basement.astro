@@ -1,16 +1,24 @@
 ---
 import Bulb from "./icons/Bulb.astro";
+import Cord from "./icons/Cord.astro";
 import PullCord from "./icons/PullCord.astro";
 ---
 
 <style>
   .socket {
-    transform: rotateZ(180deg) translateY(20%);
+    transform: rotateZ(180deg);
+  }
+
+  .cord.icon {
+    height: var(--size-7);
+    margin: -13px 0 0;
+    transform-origin: top;
+    transform: scaleY(400%);
   }
 
   .bulb.icon {
     --duration: 200ms;
-    height: var(--size-10);
+    height: var(--size-9);
     transform: scale(1, 1);
     transform-origin: bottom;
     transition: transform var(--duration) var(--ease-elastic-4);
@@ -146,7 +154,8 @@ import PullCord from "./icons/PullCord.astro";
   }
 </script>
 <div class="socket d-flex col align-center">
-  <Bulb id="bulb" class="bulb" />
+  <Bulb class="bulb" />
+  <Cord class="cord" />
 </div>
 <div class="switch">
   <label for="ligth-switch" style="display: none;"> Light switch</label>
