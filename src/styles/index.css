@@ -14,6 +14,7 @@ body {
 
 html {
   --footer-height: var(--size-13);
+  position: relative;
   background: var(--gradient);
   background-size: 100% var(--footer-height);
   background-position: bottom;
@@ -22,7 +23,24 @@ html {
   font-size: var(--font-size-1);
 }
 
+html::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 1);
+  transition: background 300ms var(--ease-out-4);
+}
+
+html[data-lights-on="true"]::after {
+  background: rgba(0, 0, 0, 0);
+}
+
 body {
+  position: relative;
+  z-index: 1;
   background: var(--bg-color);
 }
 

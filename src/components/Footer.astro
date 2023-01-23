@@ -1,8 +1,13 @@
 ---
 import Bulb from "./icons/Bulb.astro";
+import LightPull from "./icons/LightPull.astro";
 ---
 
 <style>
+  html[data-lights-on="true"] footer {
+    color: initial;
+  }
+
   footer {
     box-sizing: border-box;
     width: 100%;
@@ -10,22 +15,9 @@ import Bulb from "./icons/Bulb.astro";
     position: fixed;
     bottom: 0;
     padding: var(--size-3);
+    padding-top: 0;
     z-index: 0;
-    background: radial-gradient(
-      transparent 0%,
-      rgba(255, 255, 255, calc(100% - var(--luminance, 0%)))
-        var(--luminance, 0%)
-    );
-    transition: --luminance 300ms var(--ease-elastic-4);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    footer {
-      background: radial-gradient(
-        transparent 0%,
-        rgba(0, 0, 0, calc(100% - var(--luminance, 0%))) var(--luminance, 0%)
-      );
-    }
+    color: var(--gray-1);
   }
 
   footer p {
@@ -36,14 +28,24 @@ import Bulb from "./icons/Bulb.astro";
     width: max-content;
   }
 
+  .ceiling {
+    padding: 0;
+  }
+
+  .socket {
+    transform: rotateZ(180deg) translateY(15%);
+  }
+
   .bulb.icon {
+    --duration: 200ms;
     height: var(--size-10);
+    transform: scale(1, 1);
+    transform-origin: bottom;
+    transition: transform var(--duration) var(--ease-elastic-4);
   }
 
   .bulb.charging.icon {
-    --duration: 200ms;
-    transform-origin: bottom;
-    animation: bouncy var(--duration) var(--ease-out-4) 2 alternate;
+    transform: scale(0.95, 1.06);
   }
 
   .bulb :global(.rays) {
@@ -52,23 +54,49 @@ import Bulb from "./icons/Bulb.astro";
 
   .bulb.charged :global(.rays) {
     opacity: 1;
-    animation: shiny calc(2 * var(--duration)) var(--ease-elastic-4);
+    animation: shiny var(--duration) var(--ease-elastic-4);
     transform-origin: center;
   }
 
-  @keyframes bouncy {
-    from {
-      transform: scaleY(1) scaleX(1);
-    }
-    to {
-      transform: scaleY(1.06) scaleX(0.95);
-    }
+  .pull {
+    position: absolute;
+    right: 0;
+    top: 0;
+    overscroll-behavior: contain;
+  }
+
+  .range {
+    aspect-ratio: 1;
+    transform: rotateZ(90deg);
+    transform-origin: center;
+    cursor: grab;
+    margin: 0;
+    opacity: 0;
+    touch-action: none;
+  }
+
+  .range:active {
+    cursor: grabbing;
+  }
+
+  .light-pull.icon {
+    position: absolute;
+    top: -35%;
+    left: 50%;
+    height: var(--size-12);
+    transform: translate(-50%, calc(var(--p) / 2.8));
+    pointer-events: none;
+  }
+
+  .light-pull.icon.bounce-back {
+    transform: translate(-50%, 0);
+    transition: transform 300ms var(--ease-elastic-5);
   }
 
   @keyframes shiny {
     from {
       opacity: 0;
-      transform: scale(0.5);
+      transform: scale(0.7);
     }
     to {
       opacity: 1;
@@ -79,29 +107,61 @@ import Bulb from "./icons/Bulb.astro";
 
 <footer class="no-print">
   <script>
+    const root = document.querySelector("html");
     const footer = document.querySelector("footer");
-    const charger = document.querySelector("#charger");
     const bulb = document.querySelector(".bulb");
-    let counter = 0;
-    const limit = 10;
-    charger.onclick = () => {
-      bulb.classList.add("charging");
-      if (counter < limit) {
-        counter++;
-        footer.style.setProperty("--luminance", `${(counter * 100) / limit}%`);
+    const range = document.querySelector(".range");
+    const lightPull = document.querySelector(".light-pull");
+    let toggled = false;
+    range.addEventListener("input", (event) => {
+      lightPull.style.setProperty("--p", `${event.target.value}%`);
+      if (event.target.value > 75) {
+        bulb.classList.add("charging");
+        toggled = true;
+      } else {
+        bulb.classList.remove("charging");
+        if (toggled) {
+          bulb.classList.toggle("charged");
+          root.dataset.lightsOn = !(root.dataset.lightsOn === "true");
+          toggled = false;
+        }
       }
-      if (counter >= limit) {
-        bulb.classList.add("charged");
+    });
+    range.addEventListener("change", (event) => {
+      lightPull.classList.add("bounce-back");
+      bulb.classList.remove("charging");
+      lightPull.addEventListener("transitionend", () => {
+        lightPull.classList.remove("bounce-back");
+        bounceBack();
+      });
+      if (toggled) {
+        bulb.classList.toggle("charged");
+        root.dataset.lightsOn = !(root.dataset.lightsOn === "true");
       }
-      bulb.addEventListener("animationend", () =>
-        bulb.classList.remove("charging")
+      toggled = false;
+    });
+
+    function bounceBack() {
+      range.value = 0;
+      range.dispatchEvent(
+        new Event("input", { bubbles: true, cancelable: true })
       );
-    };
+    }
   </script>
-  <section>
-    <p class="d-flex col align-center">
+  <section class="ceiling relative">
+    <div class="socket d-flex col align-center">
       <Bulb id="bulb" class="bulb" />
-      <button id="charger"> Click me!</button>
-    </p>
+    </div>
+    <div class="pull">
+      <input
+        type="range"
+        class="range"
+        min="0"
+        max="100"
+        step="any"
+        value="0"
+      />
+      <LightPull class="light-pull" />
+    </div>
   </section>
 </footer>

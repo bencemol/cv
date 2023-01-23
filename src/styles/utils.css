@@ -15,7 +15,11 @@
   align-items: center;
 }
 
-@property --luminance {
+.relative {
+  position: relative;
+}
+
+@property --p {
   syntax: "<percentage>";
   inherits: false;
   initial-value: 0%;
