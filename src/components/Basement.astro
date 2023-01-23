@@ -1,6 +1,6 @@
 ---
 import Bulb from "./icons/Bulb.astro";
-import LightPull from "./icons/LightPull.astro";
+import PullCord from "./icons/PullCord.astro";
 ---
 
 <style>
@@ -38,19 +38,24 @@ import LightPull from "./icons/LightPull.astro";
 
   .range {
     aspect-ratio: 1;
-    transform: rotateZ(90deg);
+    transform: rotateZ(90deg) translateX(50%);
     transform-origin: center;
     cursor: grab;
     margin: 0;
     opacity: 0;
-    touch-action: none;
+    pointer-events: none;
+  }
+
+  .range::-webkit-slider-thumb {
+    pointer-events: auto;
+    transform: scale(4);
   }
 
   .range:active {
     cursor: grabbing;
   }
 
-  .light-pull.icon {
+  .pull-cord.icon {
     position: absolute;
     top: -35%;
     left: 50%;
@@ -59,7 +64,7 @@ import LightPull from "./icons/LightPull.astro";
     pointer-events: none;
   }
 
-  .light-pull.icon.bounce-back {
+  .pull-cord.icon.bounce-back {
     transform: translate(-50%, 0%);
     transition: transform 300ms var(--ease-elastic-5);
   }
@@ -80,7 +85,7 @@ import LightPull from "./icons/LightPull.astro";
   const root = document.querySelector("html") as HTMLElement;
   const bulb = document.querySelector(".bulb") as HTMLElement;
   const range = document.querySelector(".range") as HTMLInputElement;
-  const lightPull = document.querySelector(".light-pull") as HTMLElement;
+  const pullCord = document.querySelector(".pull-cord") as HTMLElement;
 
   let toggled = false;
 
@@ -90,8 +95,8 @@ import LightPull from "./icons/LightPull.astro";
   range.addEventListener("change", release);
 
   function pull(value: number) {
-    lightPull.style.setProperty("--p", `${value}%`);
-    if (value > 75) {
+    pullCord.style.setProperty("--p", `${value}%`);
+    if (value > 65) {
       bulb.classList.add("charging");
       if (!toggled) {
         hapticFeedback();
@@ -104,12 +109,12 @@ import LightPull from "./icons/LightPull.astro";
   }
 
   function release() {
-    lightPull.classList.add("bounce-back");
+    pullCord.classList.add("bounce-back");
     bulb.classList.remove("charging");
-    lightPull.addEventListener(
+    pullCord.addEventListener(
       "transitionend",
       () => {
-        lightPull.classList.remove("bounce-back");
+        pullCord.classList.remove("bounce-back");
         bounceBack();
       },
       { once: true }
@@ -153,5 +158,5 @@ import LightPull from "./icons/LightPull.astro";
     step="any"
     value="0"
   />
-  <LightPull class="light-pull" />
+  <PullCord class="pull-cord" />
 </div>
