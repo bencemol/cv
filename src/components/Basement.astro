@@ -112,7 +112,9 @@ import PullCord from "./icons/PullCord.astro";
     animation: point-down 2500ms var(--ease-elastic-4) infinite;
   }
 
-  .pull-cord .icon:is([style="--p:0%;"], :not([style])) ~ .arrow {
+  .pull-cord
+    .icon:is([style="--p:0%;"], [style="--p: 0%;"], :not([style]))
+    ~ .arrow {
     opacity: 1;
   }
 </style>
