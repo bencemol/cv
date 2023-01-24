@@ -1,10 +1,34 @@
 ---
+import ArrowDown from "./icons/ArrowDown.astro";
 import Bulb from "./icons/Bulb.astro";
 import Cord from "./icons/Cord.astro";
 import PullCord from "./icons/PullCord.astro";
 ---
 
 <style>
+  @keyframes shiny {
+    from {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes point-down {
+    from {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, -5px);
+    }
+    to {
+      transform: translate(-50%, 0);
+    }
+  }
+
   .socket {
     transform: rotateZ(180deg);
   }
@@ -64,7 +88,7 @@ import PullCord from "./icons/PullCord.astro";
     cursor: grabbing;
   }
 
-  .pull-cord.icon {
+  .pull-cord .icon {
     position: absolute;
     top: -35%;
     left: 50%;
@@ -73,20 +97,23 @@ import PullCord from "./icons/PullCord.astro";
     pointer-events: none;
   }
 
-  .pull-cord.icon.bounce-back {
+  .pull-cord .icon.bounce-back {
     transform: translate(-50%, 0%);
     transition: transform 300ms var(--ease-elastic-5);
   }
 
-  @keyframes shiny {
-    from {
-      opacity: 0;
-      transform: scale(0.7);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
+  .arrow.icon {
+    aspect-ratio: 1;
+    height: var(--size-10);
+    bottom: -5px;
+    top: unset;
+    opacity: 1;
+    transition: opacity 300ms var(--ease-out-1);
+    animation: point-down 2500ms var(--ease-elastic-4) infinite;
+  }
+
+  .pull-cord .icon[style] ~ .arrow {
+    opacity: 0;
   }
 </style>
 
@@ -94,7 +121,7 @@ import PullCord from "./icons/PullCord.astro";
   const root = document.querySelector("html") as HTMLElement;
   const bulb = document.querySelector(".bulb") as HTMLElement;
   const range = document.querySelector(".range") as HTMLInputElement;
-  const pullCord = document.querySelector(".pull-cord") as HTMLElement;
+  const pullCord = document.querySelector(".pull-cord .icon") as HTMLElement;
 
   let toggled = false;
 
@@ -168,5 +195,8 @@ import PullCord from "./icons/PullCord.astro";
     step="any"
     value="0"
   />
-  <PullCord class="pull-cord" />
+  <div class="pull-cord">
+    <PullCord />
+    <ArrowDown class="arrow" />
+  </div>
 </div>
