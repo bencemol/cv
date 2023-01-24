@@ -107,13 +107,13 @@ import PullCord from "./icons/PullCord.astro";
     height: var(--size-10);
     bottom: -5px;
     top: unset;
-    opacity: 1;
+    opacity: 0;
     transition: opacity 300ms var(--ease-out-1);
     animation: point-down 2500ms var(--ease-elastic-4) infinite;
   }
 
-  .pull-cord .icon[style] ~ .arrow {
-    opacity: 0;
+  .pull-cord .icon:is([style="--p:0%;"], :not([style])) ~ .arrow {
+    opacity: 1;
   }
 </style>
 
