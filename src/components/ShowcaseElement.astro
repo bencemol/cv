@@ -65,7 +65,7 @@ const { title, href, videoSrc } = Astro.props;
 
 <a class="card" href={href} aria-label={title}>
   <h3>{title}</h3>
-  <video autoplay muted loop>
+  <video autoplay muted loop disableRemotePlayback>
     <source src={videoSrc} />
   </video>
   <p>
