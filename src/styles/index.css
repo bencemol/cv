@@ -43,8 +43,8 @@ body {
   position: relative;
   z-index: 1;
   background: var(--bg-color);
-  -webkit-font-smoothing: antialiased;
-  text-size-adjust: 100%;
+  /* -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%; */
 }
 
 section,

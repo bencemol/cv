@@ -23,9 +23,8 @@ const { title, technologies } = Astro.props;
   .technology {
     display: flex;
     align-items: center;
-    height: var(--size-6);
-    gap: var(--size-5);
-    padding: var(--size-2) 0;
+    height: calc(var(--font-lineheight-4) * 1rem);
+    gap: var(--size-3);
     margin-left: 0px;
     border-radius: var(--radius-3);
   }
@@ -40,7 +39,7 @@ const { title, technologies } = Astro.props;
   }
 
   .technology img {
-    height: 100%;
+    height: 75%;
     display: inline-block;
     aspect-ratio: 1;
     filter: brightness(0%);
