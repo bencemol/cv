@@ -117,6 +117,13 @@ import PullCord from "./icons/PullCord.astro";
     ~ .arrow {
     opacity: 1;
   }
+
+  .hidden {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
 </style>
 
 <script>
@@ -187,7 +194,7 @@ import PullCord from "./icons/PullCord.astro";
   <Cord class="cord" />
 </div>
 <div class="switch">
-  <label for="ligth-switch" style="display: none;"> Light switch</label>
+  <label for="ligth-switch" class="hidden"> Light switch</label>
   <input
     type="range"
     class="range"
