@@ -114,7 +114,7 @@ button:active {
 }
 
 .card {
-  background-image: var(--gradient);
+  background: var(--gradient);
   border-radius: var(--radius-3);
   margin-top: var(--size-7);
   padding: var(--size-5) var(--size-7);

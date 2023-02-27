@@ -4,7 +4,12 @@ html {
   --bg-color-dark: var(--gray-2);
   --text-color: var(--gray-9);
   --border-color: var(--gray-9);
-  --gradient: var(--gradient-15);
+  --gradient: linear-gradient(
+    to bottom right,
+    hsl(228, 78%, 92%),
+    hsl(0, 76%, 92%),
+    hsl(48, 72%, 91%)
+  );
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,7 +19,12 @@ html {
     --bg-color-dark: var(--gray-8);
     --text-color: var(--gray-1);
     --border-color: var(--gray-1);
-    --gradient: linear-gradient(to bottom right, #744512, #852b66, #6b2d79);
+    --gradient: linear-gradient(
+      to bottom right,
+      hsl(31, 40%, 21%),
+      hsl(321, 45%, 19%),
+      hsl(289, 40%, 19%)
+    );
   }
 }
 
