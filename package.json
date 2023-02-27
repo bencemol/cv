@@ -13,7 +13,6 @@
     "sass": "^1.58.3"
   },
   "dependencies": {
-    "astro-purgecss": "^2.0.0",
     "open-props": "^1.5.5"
   }
 }
