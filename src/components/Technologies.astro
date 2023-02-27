@@ -17,6 +17,7 @@ const { title, technologies } = Astro.props;
     column-count: 2;
     column-gap: var(--size-3);
     column-width: 9rem;
+    padding-left: 0px;
   }
 
   .technology {
@@ -24,8 +25,14 @@ const { title, technologies } = Astro.props;
     align-items: center;
     height: var(--size-6);
     gap: var(--size-5);
-    padding: var(--size-1) 0;
+    padding: var(--size-2) 0;
+    margin-left: 0px;
     border-radius: var(--radius-3);
+  }
+
+  .technology:before {
+    content: "";
+    display: none;
   }
 
   .technology:not(:last-child) {

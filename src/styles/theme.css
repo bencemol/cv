@@ -12,6 +12,11 @@ html {
   );
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-VariableFont_slnt,wght.ttf");
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

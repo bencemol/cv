@@ -28,6 +28,10 @@ const { title, href, videoSrc } = Astro.props;
     will-change: transform;
   }
 
+  a.card {
+    margin-top: 0;
+  }
+
   :is(.card:hover, .card:focus-visible) video {
     transform: scale(1.03) translateY(-2px);
   }

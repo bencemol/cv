@@ -19,9 +19,9 @@ html {
   background-size: 100% var(--footer-height);
   background-position: bottom;
   color: var(--text-color);
-  font-family: var(--font-sans);
+  font-family: Inter, Helvetica, Arial, sans-serif;
   font-size: var(--font-size-1);
-  font-weight: var(--font-weight-3);
+  font-weight: var(--font-weight-4);
 }
 
 html::after {
@@ -48,33 +48,33 @@ body {
 section,
 .section {
   max-inline-size: var(--size-content-3);
-  padding: var(--size-3) var(--size-fluid-3);
+  padding: var(--size-5) var(--size-fluid-3);
   margin: 0 auto;
 }
 
 h1 {
   font-size: var(--font-size-5);
-  font-weight: var(--font-weight-4);
+  font-weight: var(--font-weight-7);
 }
 
 h2 {
   font-size: var(--font-size-4);
-  font-weight: var(--font-weight-3);
+  font-weight: var(--font-weight-7);
 }
 
 h3 {
   font-size: var(--font-size-2);
-  font-weight: var(--font-weight-4);
+  font-weight: var(--font-weight-6);
 }
 
 h4 {
   font-size: var(--font-size-2);
-  font-weight: var(--font-weight-3);
+  font-weight: var(--font-weight-2);
 }
 
 h5 {
   font-size: var(--font-size-1);
-  font-weight: var(--font-weight-2);
+  font-weight: var(--font-weight-3);
 }
 
 ol,
@@ -82,10 +82,18 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  padding-left: 1em;
 }
 
 li {
   line-height: var(--font-lineheight-4);
+}
+
+li:before {
+  display: inline-block;
+  content: "-";
+  width: 1em;
+  margin-left: -1em;
 }
 
 a {
