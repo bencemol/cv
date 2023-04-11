@@ -18,6 +18,10 @@
   position: relative;
 }
 
+.space-y-7 > *:not(:first-child) {
+  margin-top: var(--size-7);
+}
+
 @property --p {
   syntax: "<percentage>";
   inherits: false;

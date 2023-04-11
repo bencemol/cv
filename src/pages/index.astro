@@ -6,57 +6,36 @@ import Header from "../components/Header.astro";
 import Showcase from "../components/Showcase.astro";
 import StudiesTimeline from "../components/StudiesTimeline.astro";
 import WorkTimeline from "../components/WorkTimeline.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/index.css";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#fecaca" />
-    <meta
-      name="theme-color"
-      content="#852b66"
-      media="(prefers-color-scheme: dark)"
-    />
-    <meta name="description" content="Molnár Bence Resume" />
-    <link
-      rel="preload"
-      href="fonts/Inter-VariableFont_slnt,wght.ttf"
-      as="font"
-      type="font/ttf"
-      crossorigin
-    />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <title>Resume - Bence Molnár</title>
-  </head>
-
-  <body>
-    <Header />
-    <main class="content">
-      <section class="resume-skills">
-        <h2>Technologies I like to work with</h2>
+<BaseLayout>
+  <Header />
+  <main class="content">
+    <section class="resume-skills">
+      <h2>Technologies I like to work with</h2>
+      <div class="space-y-7">
         <FrontendTechnologies />
         <BackendTechnologies />
-      </section>
+      </div>
+    </section>
 
-      <section class="resume-work">
-        <h2>Places I've worked at</h2>
-        <WorkTimeline />
-      </section>
-      <section class="resume-studies">
-        <h2>Schools I've studied at</h2>
-        <StudiesTimeline />
-      </section>
-      <section class="resume-showcase no-print">
-        <h2>Some snippets of code</h2>
-        <Showcase />
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+    <section class="resume-work">
+      <h2>Places I've worked at</h2>
+      <WorkTimeline />
+    </section>
+    <section class="resume-studies">
+      <h2>Schools I've studied at</h2>
+      <StudiesTimeline />
+    </section>
+    <section class="resume-showcase no-print">
+      <h2>Some snippets of code</h2>
+      <Showcase />
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
 
 <style>
   .content {
@@ -69,6 +48,6 @@ import "../styles/index.css";
   }
 
   h2 {
-    margin-bottom: var(--size-7);
+    margin-bottom: var(--size-4);
   }
 </style>

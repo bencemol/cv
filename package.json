@@ -13,6 +13,7 @@
     "sass": "^1.58.3"
   },
   "dependencies": {
+    "@fontsource/inter": "^4.5.15",
     "open-props": "^1.5.5"
   }
 }

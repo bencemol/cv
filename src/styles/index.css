@@ -19,9 +19,7 @@ html {
   background-size: 100% var(--footer-height);
   background-position: bottom;
   color: var(--text-color);
-  font-family: Inter, Helvetica, Arial, sans-serif;
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-4);
+  font-family: "Inter", sans-serif;
 }
 
 html::after {
@@ -43,13 +41,11 @@ body {
   position: relative;
   z-index: 1;
   background: var(--bg-color);
-  /* -webkit-font-smoothing: antialiased;
-  text-size-adjust: 100%; */
 }
 
 section,
 .section {
-  max-inline-size: var(--size-content-3);
+  max-inline-size: 65ch;
   padding: var(--size-5) var(--size-fluid-3);
   margin: 0 auto;
 }
@@ -128,7 +124,6 @@ button:active {
 .card {
   background: var(--gradient);
   border-radius: var(--radius-3);
-  margin-top: var(--size-7);
   padding: var(--size-5) var(--size-7);
 }
 
