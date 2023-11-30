@@ -9,11 +9,9 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^2.0.16",
-    "sass": "^1.58.3"
+    "astro": "^2.0.16"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.5.15",
-    "open-props": "^1.5.5"
+    "open-props": "^1.6.13"
   }
 }

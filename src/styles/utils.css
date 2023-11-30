@@ -22,6 +22,12 @@
   margin-top: var(--size-7);
 }
 
+.bg-noise {
+  background-image: url("noise-50.png");
+  background-position: 0 0;
+  background-size: 200px 200px;
+}
+
 @property --p {
   syntax: "<percentage>";
   inherits: false;
