@@ -3,20 +3,25 @@ import ShowcaseElement from "./ShowcaseElement.astro";
 ---
 
 <style>
-  .showcase-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--size-13), 1fr));
-    justify-content: space-between;
-    gap: var(--size-7);
+  .grid *:first-child {
+    grid-column: 1 / -1;
+  }
+
+  @media only screen and (min-width: 560px) {
+    .grid *:first-child :global(video) {
+      aspect-ratio: var(--ratio-widescreen);
+    }
   }
 </style>
 
-<div class="showcase-content">
-  <ShowcaseElement
-    title="Tábla - Kanban Boards"
-    href="https://github.com/bencemol/tabla"
-    videoSrc="./showcase/tabla.mp4"
-  />
+<div class="grid">
+  <div>
+    <ShowcaseElement
+      title="Tábla - Kanban Boards"
+      href="https://github.com/bencemol/tabla"
+      videoSrc="./showcase/tabla.mp4"
+    />
+  </div>
   <ShowcaseElement
     title="Chatbot splash screen"
     href="https://codesandbox.io/s/chatbot-splash-srfqg"

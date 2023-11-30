@@ -2,14 +2,16 @@
 import TimelineElement from "./TimelineElement.astro";
 ---
 
-<div class="space-y-7">
-  <TimelineElement title="Snapsoft" timespan="2022 - 2023">
-    <ul>
-      <li>Training UI for industrial robotics</li>
-      <li>Machine learning based E-commerce recommendation engine</li>
-      <li>E-commerce design system implementaion for fizz.hu</li>
-    </ul>
-  </TimelineElement>
+<div class="grid">
+  <div>
+    <TimelineElement title="Snapsoft" timespan="2022 - 2023">
+      <ul>
+        <li>Training UI for industrial robotics</li>
+        <li>Machine learning based E-commerce recommendation engine</li>
+        <li>E-commerce design system implementaion for fizz.hu</li>
+      </ul>
+    </TimelineElement>
+  </div>
   <TimelineElement title="Talk-A-Bot" timespan="2020 - 2022">
     <ul>
       <li>Management UI for chatbots and natural language processing</li>
@@ -20,9 +22,21 @@ import TimelineElement from "./TimelineElement.astro";
       <li>Identity and authentication provider</li>
     </ul>
   </TimelineElement>
-  <TimelineElement title="Deutsche Telekom IT Solutions" timespan="2016 - 2020">
-    <ul>
-      <li>Billing applications</li>
-    </ul>
-  </TimelineElement>
+  <div>
+    <TimelineElement
+      title="Deutsche Telekom IT Solutions"
+      timespan="2016 - 2020"
+    >
+      <ul>
+        <li>Billing applications</li>
+      </ul>
+    </TimelineElement>
+  </div>
 </div>
+
+<style>
+  .grid *:first-child,
+  .grid *:last-child {
+    grid-column: 1 / -1;
+  }
+</style>

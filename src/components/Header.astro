@@ -3,11 +3,14 @@
 
 <style>
   header {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 80px;
     justify-items: start;
     align-items: center;
     gap: var(--size-3);
+    background-color: var(--bg-color);
+    z-index: 1;
   }
 
   .resume-header-text {
@@ -36,7 +39,7 @@
   }
 </style>
 
-<header class="section">
+<header class="section bg-noise">
   <div class="header-text">
     <h1>Bence Molnár</h1>
     <p>
