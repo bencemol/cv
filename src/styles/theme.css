@@ -6,10 +6,10 @@ html {
   --border-color: var(--gray-9);
   --gradient: linear-gradient(
     to bottom right,
-    hsl(228, 78%, 92%),
     hsl(0, 76%, 92%),
     hsl(48, 72%, 91%)
   );
+  --noise: url("/noise-100.png");
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,9 +22,9 @@ html {
     --gradient: linear-gradient(
       to bottom right,
       hsl(31, 40%, 21%),
-      hsl(321, 45%, 19%),
       hsl(289, 40%, 19%)
     );
+    --noise: url("/noise-50.png");
   }
 }
 
