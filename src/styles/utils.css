@@ -23,7 +23,7 @@
 }
 
 .bg-noise {
-  background-image: url("noise-50.png");
+  background-image: url("/noise-50.png");
   background-position: 0 0;
   background-size: 200px 200px;
 }

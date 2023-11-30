@@ -126,7 +126,7 @@ button:active {
 }
 
 .card {
-  background-image: url("./noise-50.png"), var(--gradient);
+  background-image: url("/noise-50.png"), var(--gradient);
   background-position: 0 0, 0 0;
   background-size: 200px, auto;
   border-radius: var(--radius-3);
