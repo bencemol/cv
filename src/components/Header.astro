@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <style>
@@ -20,9 +21,14 @@
   .gravatar {
     width: 80px;
     aspect-ratio: 1 / 1;
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--shadow-4);
     border-radius: var(--radius-blob-1);
     will-change: border-radius;
+    background-image: var(--noise), var(--gradient);
+    background-position:
+      0 0,
+      0 0;
+    background-size: 200px, auto;
     animation: blobbing 8s linear infinite;
   }
 
@@ -47,9 +53,5 @@
       Enterprise apps <b>can</b> look & feel nice!
     </p>
   </div>
-  <img
-    src="https://www.gravatar.com/avatar/d069f08d4ffdf24451b7a7b839e80a4f?s=160"
-    alt="gravatar"
-    class="gravatar border-blob-1"
-  />
+  <img src="/avatar.png" alt="gravatar" class="gravatar border-blob-1" />
 </header>
