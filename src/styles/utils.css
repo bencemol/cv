@@ -22,12 +22,6 @@
   margin-top: var(--size-7);
 }
 
-.bg-noise {
-  background-image: var(--noise);
-  background-position: 0 0;
-  background-size: 200px 200px;
-}
-
 .grid {
   display: grid;
   gap: var(--size-7);
